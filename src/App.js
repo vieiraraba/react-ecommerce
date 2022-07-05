@@ -1,14 +1,16 @@
 import './App.css';
-import Products from './components/Products';
-// import Article from './components/Article';
+import Product from './components/Product/Product'
+import {products} from './data/products'
 
-
-function App(props) {
-
+function App() {
+console.log(products);
   return (
-      // <Article {...props}/>
     <>
-      <Products  />
+    <h1>Keeanu Reeves</h1>
+    {products.map((item, index) => {
+      return <Product key={index}/>
+    })}
+    <Product/>
     </>
   );
 }
