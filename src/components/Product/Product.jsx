@@ -14,7 +14,7 @@ const Product = ({title,price,description,image,amount}) => {
 
         <p className="product_container_description">{description}</p>
 
-        <div className="product_container_button">
+        <div className="product_bottom">
 
             <p className="product_container_price">{price}$</p>
             <button className="product_bottom_buttonAdd">+</button>
