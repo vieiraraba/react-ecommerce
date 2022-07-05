@@ -3,14 +3,12 @@ import Product from './components/Product/Product'
 import {products} from './data/products'
 
 function App() {
-console.log(products);
   return (
     <>
     <h1>Keeanu Reeves</h1>
     {products.map((item, index) => {
-      return <Product key={index}/>
+      return <Product key={index} title={item.title} price={item.price} amount={item.amount} description={item.description} image={item.image}/>
     })}
-    <Product/>
     </>
   );
 }

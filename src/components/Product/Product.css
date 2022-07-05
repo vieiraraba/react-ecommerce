@@ -1,0 +1,31 @@
+.product_container {
+    display: flex;
+    flex-direction: column;
+    height: 18rem;
+    width: 12rem;
+    border: 2px solid black;
+    margin-bottom: 1rem;
+}
+
+.product_container_discount,
+.product_container_title,
+.product_container_description,
+.product_container_rating,
+.product_bottom_price,
+.product_bottom_buttonAdd {
+    padding: 0;
+    margin: 0;
+}
+
+.product_container_img {
+    padding: 0;
+    height: 10rem;
+    width: 10rem;
+}
+
+.product_bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    height: 5rem;
+}
