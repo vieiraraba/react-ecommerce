@@ -1,27 +1,51 @@
-import './Product.css';
+import Button from "@mui/material/Button";
 
-import React from 'react'
 
-const Product = ({title,price,description,image,amount}) => {
+
+
+import "./Product.css";
+
+const Product = ({
+  id,
+  title,
+  price,
+  image,
+  valoration,
+  description,
+  cart,
+  setCart,
+}) => {
+  const addToCart = () => {
+    setCart([
+      ...cart,
+      { cartId: id, cardTitle: title, cartPrice: price, cartImage: image },
+    ]);
+  };
+
   return (
-    <div className="product_container">
+    <div className="product__container">
+      <img className="product__container_img" src={image} alt="img" />
 
-        <img className="product_container_img" src={image} alt="" />
+      <p className="product__container_title">{title}</p>
 
-        <p className="product_container_tittle">{title}</p>
+      <span className="product__container_rating">{valoration}⭐️</span>
 
-        <span className="product_container_rating">{amount}⭐</span>
+      <p className="product__container_description">{description}</p>
 
-        <p className="product_container_description">{description}</p>
-
-        <div className="product_bottom">
-
-            <p className="product_container_price">{price}$</p>
-            <button className="product_bottom_buttonAdd">+</button>
-
-        </div>
+      <div className="product__bottom">
+        <p className="product__bottom_price">€{price}</p>
+        <Button
+          variant="outlined"
+          color="error"
+          size="large"
+          className="product__bottom_buttonAdd"
+          onClick={addToCart}
+        >
+          Add 
+        </Button>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

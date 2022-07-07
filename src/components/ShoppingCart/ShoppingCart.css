@@ -1,0 +1,26 @@
+.main__cart {
+  border: 1px solid #414141;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: whitesmoke;
+  padding: 20px;
+}
+.cart-title {
+  text-align: center;
+  background: #181818;
+  padding: 20px;
+  font-size: larger;
+  font-family: sans-serif;
+  font-weight: normal;
+  border-bottom: 1px solid red;
+}
+
+.cart__total {
+  text-align: end;
+  border-top: solid 1px #515151;
+  padding-top: 10px;
+}
+.cart__total_price {
+  text-align: end;
+}
