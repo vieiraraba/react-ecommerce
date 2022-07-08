@@ -4,6 +4,7 @@ import CartItem from "../CartItem/CartItem";
 
 import "./ShoppingCart.css";
 
+/* A function that is called when the component is rendered. */
 const ShoppingCart = ({ cart, setCart }) => {
   const [total, setTotal] = useState(0);
 

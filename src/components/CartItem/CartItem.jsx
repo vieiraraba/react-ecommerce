@@ -9,6 +9,7 @@ const CartItem = ({ id, title, price, image, cart, setCart, quantity }) => {
   const handleAdd = () => {
     setAmount(amount + 1);
 
+    /* Updating the amount of the item in the cart. */
     cart.forEach((item) => {
       if (item.cartId === id) {
         item.amount = amount + 1;
@@ -18,6 +19,7 @@ const CartItem = ({ id, title, price, image, cart, setCart, quantity }) => {
     setCart([...cart]);
   };
 
+  /* Updating the amount of the item in the cart. */
   const handleMinus = () => {
     if (amount === 1) return;
     setAmount(amount - 1);

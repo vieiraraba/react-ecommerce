@@ -32,6 +32,7 @@ const Product = ({
     setMenu({ ...menuState, right: true });
   };
 
+  /* Checking if the item is already in the cart. */
   useEffect(() => {
     cart.forEach((item) => {
       if (item.cartId === id) {
@@ -39,11 +40,6 @@ const Product = ({
       }
     });
   });
-
-  // useEffect(() => {
-  //   console.log("useEffect");
-  // }, [cart]);
-
   return (
     <div className="product__container">
       <img className="product__container_img" src={image} alt="img" />

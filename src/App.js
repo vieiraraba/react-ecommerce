@@ -12,6 +12,8 @@ import "./App.css";
 const initialShoppingCart =
   JSON.parse(localStorage.getItem("shoppingCart")) || [];
 
+
+/* The above code is a React component that renders a list of products. */
 function App() {
   const [buyShoppingCart, setBuyShoppingCart] = useState(initialShoppingCart);
   const [state, setState] = useState({
