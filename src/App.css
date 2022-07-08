@@ -1,4 +1,4 @@
-@import url("./assets/css/reset.css");
+@import url("./assets/css/normalize.css");
 
 .App {
   text-align: center;
@@ -28,4 +28,8 @@
 .products_list {
   display: flex;
   justify-content: space-around;
+}
+
+.MuiPaper-root {
+  /* width: 20rem; */
 }

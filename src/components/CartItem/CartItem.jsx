@@ -1,8 +1,41 @@
+import { useState } from "react";
 import Button from "@mui/material/Button";
 
 import "./CartItem.css";
 
-const CartItem = ({ id, title, price, image }) => {
+const CartItem = ({ id, title, price, image, cart, setCart, quantity }) => {
+  const [amount, setAmount] = useState(quantity);
+
+  const handleAdd = () => {
+    setAmount(amount + 1);
+
+    cart.forEach((item) => {
+      if (item.cartId === id) {
+        item.amount = amount + 1;
+      }
+    });
+
+    setCart([...cart]);
+  };
+
+  const handleMinus = () => {
+    if (amount === 1) return;
+    setAmount(amount - 1);
+
+    cart.forEach((item) => {
+      if (item.cartId === id) {
+        item.amount = amount - 1;
+      }
+    });
+
+    setCart([...cart]);
+  };
+
+  const handleRemove = () => {
+    const newCart = cart.filter((item) => item.cartId !== id);
+    setCart(newCart);
+  };
+
   return (
     <div className="cart__item">
       <img className="cart__item_image" src={image} alt="" />
@@ -10,12 +43,16 @@ const CartItem = ({ id, title, price, image }) => {
         <p className="cart__item_title">{title}</p>
         <p className="cart__item_price">{price}</p>
         <div className="cart__item_bottom">
-          <Button variant="contained" className="">
+          <Button variant="contained" className="" onClick={handleMinus}>
             -
           </Button>
-          <p>0</p>
-          <Button variant="contained">+</Button>
-          <Button variant="contained">Remove</Button>
+          <p>{amount}</p>
+          <Button variant="contained" onClick={handleAdd}>
+            +
+          </Button>
+          <Button variant="contained" onClick={handleRemove}>
+            Remove
+          </Button>
         </div>
       </div>
     </div>
