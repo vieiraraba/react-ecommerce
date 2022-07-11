@@ -1,0 +1,23 @@
+.navbar__container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    height: 5vh;
+    width:100%;
+    border-top: 2px solid black;
+}
+
+.navbar__container_links{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:0.5rem;
+}
+
+.navbar__container_logo {
+    margin-left: 2rem;
+}
+
+.navbar__container_icons{
+    margin-right: 2rem;
+}
