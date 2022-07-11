@@ -3,9 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  // <React.StrictMode>
-  <App />
-  // </React.StrictMode>
-);
+import {NextUIProvider} from  "@nextui-org/react"
+
+import Router from "./Router";
+
+  const root = ReactDOM.createRoot (document.getElementById("root"));
+  root.render(
+    <NextUIProvider>
+      <Router />
+    </NextUIProvider>
+  );
