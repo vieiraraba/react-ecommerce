@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
         "Keeanu"
+    ],
+    "conventionalCommits.scopes": [
+        "Catalog,jsx"
     ]
 }

@@ -1,0 +1,8 @@
+.catalog__container {
+    border: 2px solid red;
+    height: 50vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

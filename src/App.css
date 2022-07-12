@@ -1,4 +1,4 @@
-@import url("./assets/css/normalize.css");
+@import url("./assets/css/reset.css");
 
 .App {
   text-align: center;
@@ -6,6 +6,13 @@
 
 .main__app {
   display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}
+
+.navbar__container {
+  display: flex;
   height: 5vh;
+  width: 100%;
   border: 2px solid black;
 }
