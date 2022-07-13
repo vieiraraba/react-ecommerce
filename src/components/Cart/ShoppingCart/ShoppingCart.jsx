@@ -4,7 +4,7 @@ import { Button } from "@nextui-org/react";
 
 import "./ShoppingCart.css";
 
-const ShoppingCart = ({ cart, setCart }) => {
+const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
   const [total, setTotal] = useState(0);
 
   // useEffect(() => {
@@ -16,12 +16,25 @@ const ShoppingCart = ({ cart, setCart }) => {
 
   // 	setTotal(totalPrice);
   // }, [cart]);
-
+  console.log(shoppingCart);
   return (
     <div className="main__cart">
       <h3>Shopping Cart</h3>
       <ul className="cart__list">
-        <CartItem />
+        {shoppingCart.map(
+          ({ itemId, itemTitle, itemPrice, itemImage, itemQuantity }) => {
+            return (
+              <CartItem
+                key={itemId}
+                itemId={itemId}
+                itemTitle={itemTitle}
+                itemPrice={itemPrice}
+                itemImage={itemImage}
+                itemQuantity={itemQuantity}
+              />
+            );
+          }
+        )}
 
         {/* {cart.length === 0 ? (
 					<p>No items in the cart</p>

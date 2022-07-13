@@ -1,18 +1,18 @@
 .product__container {
   display: flex;
   flex-direction: column;
-  height: -webkit-fill-available;
+  /* height: -webkit-fill-available; */
   width: 12rem;
   margin-bottom: 1rem;
   color: whitesmoke;
-  background: #323232;
+  background: white;
 }
 
 .product__container_title {
   font-size: large;
   font-family: "Roboto";
   text-align: center;
-  background: black;
+  background: white;
   padding: 10px;
   border-bottom: #3c3c3c solid 1px;
 }

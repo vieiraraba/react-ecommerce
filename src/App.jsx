@@ -22,10 +22,11 @@ const initialShoppingCart =
  */
 function App() {
   const [shoppingCart, setShoppingCart] = useState ([]);
+
   return (
     <>
       <div className="main__app">
-        <Navbar />
+        <Navbar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
         <Catalog shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
       </div>
       <div>
