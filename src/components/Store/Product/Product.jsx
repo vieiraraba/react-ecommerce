@@ -1,7 +1,13 @@
-import { useState, useEffect } from "react";
-import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+/* Importing the CSS file for the Product component. */
 import "./Product.css";
 
+/* Importing the useState and useEffect hooks from the react library. */
+import { useState, useEffect } from "react";
+
+/* Importing the Card, Col, Row, Button, and Text components from the NextUI library. */
+import { Card, Col, Row, Button, Text } from "@nextui-org/react";
+
+/* A function that takes in a bunch of props and returns a react component. */
 const Product = ({
   id,
   title,
@@ -15,26 +21,10 @@ const Product = ({
   menuState,
   setMenu,
 }) => {
+  /* A function that adds an item to the shopping cart. */
+
   const [itemAdded, setItemAdded] = useState(false);
 
-  /**
-   * When the addToCart function is called, the cart array is updated with the new item, the added
-   * state is set to true, and the menu state is updated with the right property set to true.
-   */
-  // const addToCart = () => {
-  //   setCart([
-  //     ...cart,
-  //     {
-  //       cartId: id,
-  //       cardTitle: title,
-  //       cartPrice: price,
-  //       cartImage: image,
-  //       amount: 1,
-  //     },
-  //   ]);
-  //   setAdded(true);
-  //   setMenu({ ...menuState, right: true });
-  // };
   const addToCart = () => {
     setShoppingCart([
       ...shoppingCart,
@@ -106,7 +96,7 @@ const Product = ({
                   transform="uppercase"
                   onClick={addToCart}
                 >
-                  {(itemAdded) ? "Added" : "Shop Now"}
+                  {itemAdded ? "Added" : "Shop Now"}
                 </Text>
               </Button>
             </Row>

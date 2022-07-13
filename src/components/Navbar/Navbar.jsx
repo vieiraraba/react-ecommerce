@@ -1,10 +1,20 @@
+/* Importing the css file for the Navbar component. */
+import "./Navbar.css";
+
+/* Importing the Popover and Button components from the @nextui-org/react package. */
 import { Popover, Button } from "@nextui-org/react";
+
+/* Importing the shopping bag icon from the react-icons package. */
+import{FaShoppingBasket} from "react-icons/fa";
+
+/* Importing the ShoppingCart component from the ShoppingCart.js file. */
 import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
 
-import "./Navbar.css";
+
 
 const Navbar = ({ shoppingCart, setShoppingCart }) => {
   return (
+    /* Creating a navbar with links. */
     <div className="navbar__container">
       <div className="navbar__container_logo">Logo</div>
       <div className="navbar__container_links">
@@ -15,11 +25,14 @@ const Navbar = ({ shoppingCart, setShoppingCart }) => {
         <span className="navbar__container_link">LOOKBOK</span>
         <span className="navbar__container_link">BLOG</span>
       </div>
+      
+      {/* Creating a popover that will display the shopping cart when the user clicks on the cart
+      button. */}
       <div className="navbar__container_icons">
         <Popover>
           <Popover.Trigger>
             <Button auto ghost>
-              Cart
+              <FaShoppingBasket size='5.5rem' />
             </Button>
           </Popover.Trigger>
           <Popover.Content css={{ width: "max-content" }}>

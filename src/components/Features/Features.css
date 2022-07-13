@@ -1,0 +1,21 @@
+.features__container{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding:2rem;
+    border: 2px solid black;
+    gap:10rem;
+}
+
+h3{
+    font-weight: bold;
+    font-size:1.5em;
+}
+
+.firstFeature__container, .secondFeature__container, .thirdFeature__container, .fourthFeature__container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1.7rem;
+    width:15rem
+}

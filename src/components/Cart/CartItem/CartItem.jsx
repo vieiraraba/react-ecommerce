@@ -1,9 +1,16 @@
-import { useState } from "react";
-import { Button } from "@nextui-org/react";
+/* Importing the CSS file for the component. */
 import "./CartItem.css";
 
+/* Importing the useState hook from the React library. */
+import { useState } from "react";
+
+/* Importing the Button component from the NextUI React library. */
+import { Button } from "@nextui-org/react";
+
+
+/* A function that takes in the props of the component. */
 const CartItem = ({
-  imteId,
+  itemId,
   itemTitle,
   itemPrice,
   itemImage,
@@ -43,6 +50,7 @@ const CartItem = ({
   //   setCart(newCart);
   // };
 
+  /* Returning the JSX code for the component. */
   return (
     <div className="cart__item">
       <img className="cart__item_image" src={itemImage} alt="product" />

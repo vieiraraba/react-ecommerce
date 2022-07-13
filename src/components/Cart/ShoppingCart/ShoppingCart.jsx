@@ -1,8 +1,15 @@
+/* Importing the CSS file for the component. */
+import "./ShoppingCart.css";
+
+/* Importing the CartItem component from the CartItem folder. */
 import CartItem from "../CartItem/CartItem";
+
+/* Importing the useState and useEffect hooks from the React library. */
 import { useState, useEffect } from "react";
+
+/* Importing the Button component from the NextUI library. */
 import { Button } from "@nextui-org/react";
 
-import "./ShoppingCart.css";
 
 const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
   const [total, setTotal] = useState(0);
@@ -16,11 +23,12 @@ const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
 
   // 	setTotal(totalPrice);
   // }, [cart]);
-  console.log(shoppingCart);
   return (
     <div className="main__cart">
       <h3>Shopping Cart</h3>
       <ul className="cart__list">
+       {/* Mapping through the shoppingCart array and returning a CartItem component for each item in
+       the array. */}
         {shoppingCart.map(
           ({ itemId, itemTitle, itemPrice, itemImage, itemQuantity }) => {
             return (

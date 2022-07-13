@@ -1,13 +1,15 @@
+/* Importing the App.css file. */
 import "./App.css";
 
+/* Importing the useEffect and useState hooks from the React library. */
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
+/* Importing the Navbar, Catalog, Features and FreeShippingMin components. */
 import Navbar from "./components/Navbar/Navbar";
 import Catalog from "./components/Store/Catalog/Catalog";
-import Router from "./Router";
 import FreeShippingMin from "./components/FreeShippingMin/FreeShippingMin";
+import Features from "./components/Features/Features";
 
 
 
@@ -31,6 +33,9 @@ function App() {
       </div>
       <div>
         <FreeShippingMin />
+      </div>
+      <div>
+        <Features />
       </div>
     </>
   );
