@@ -1,8 +1,16 @@
 {
     "cSpell.words": [
-        "Keeanu"
+        "Bigelow",
+        "Funko",
+        "Keanu",
+        "Keeanu",
+        "nextui",
+        "Póster",
+        "Sudadera",
+        "valoration"
     ],
     "conventionalCommits.scopes": [
-        "Catalog,jsx"
+        "Catalog,jsx",
+        "shoppingCart"
     ]
 }

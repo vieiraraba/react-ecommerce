@@ -1,6 +1,7 @@
 import { Popover, Button, Text } from "@nextui-org/react";
 
 import "./Navbar.css";
+import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
 
 
 const Navbar = () => {
@@ -34,7 +35,7 @@ const Navbar = () => {
         </Button>
       </Popover.Trigger>
       <Popover.Content>
-        <Text css={{ p: "$10" }}>This is the content of the popover.</Text>
+        <ShoppingCart />
       </Popover.Content>
     </Popover>
         </div>

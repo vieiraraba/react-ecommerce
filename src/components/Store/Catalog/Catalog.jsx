@@ -1,9 +1,10 @@
+import { dblClick } from "@testing-library/user-event/dist/click";
 import { useEffect, useState } from "react";
 import Product from "../Product/Product";
 
 import "./Catalog.css";
 
-const Catalog = () => {
+const Catalog = ({ shoppingCart, setShoppingCart }) => {
   const [products, setSaveProducts] = useState([]);
 
   useEffect(() => {
@@ -17,8 +18,17 @@ const Catalog = () => {
 
   return (
     <div className="catalog__container">
-      {products.map(({id, title, price, image}) => {
-        return <Product key={id} title={title} price={price} image={image} />;
+      {products.map(({ id, title, price, image }) => {
+        return (
+          <Product
+            key={id}
+            title={title}
+            price={price}
+            image={image}
+            shoppingCart={shoppingCart}
+            setShoppingCart={setShoppingCart}
+          />
+        );
       })}
     </div>
   );

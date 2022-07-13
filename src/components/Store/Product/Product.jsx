@@ -9,28 +9,43 @@ const Product = ({
   image,
   valoration,
   description,
-  cart,
-  setCart,
+  shoppingCart,
+  setShoppingCart,
   menuState,
   setMenu,
 }) => {
-  const [added, setAdded] = useState(false);
+  const [itemAdded, setItemAdded] = useState(false);
 
+  /**
+   * When the addToCart function is called, the cart array is updated with the new item, the added
+   * state is set to true, and the menu state is updated with the right property set to true.
+   */
+  // const addToCart = () => {
+  //   setCart([
+  //     ...cart,
+  //     {
+  //       cartId: id,
+  //       cardTitle: title,
+  //       cartPrice: price,
+  //       cartImage: image,
+  //       amount: 1,
+  //     },
+  //   ]);
+  //   setAdded(true);
+  //   setMenu({ ...menuState, right: true });
+  // };
   const addToCart = () => {
-    setCart([
-      ...cart,
+    setShoppingCart([
+      ...shoppingCart,
       {
-        cartId: id,
-        cardTitle: title,
-        cartPrice: price,
-        cartImage: image,
-        amount: 1,
+        itemId: id,
+        itemTitle: title,
+        itemPrice: price,
+        itemImage: image,
       },
     ]);
-    setAdded(true);
-    setMenu({ ...menuState, right: true });
+    setItemAdded(true);
   };
-
   //   useEffect(() => {
   //     cart.forEach((item) => {
   //       if (item.cartId === id) {
@@ -38,6 +53,7 @@ const Product = ({
   //       }
   //     });
   //   });
+  /* A React component. */
   return (
     <Card css={{ w: "15%", h: "330px" }}>
       <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
@@ -47,7 +63,6 @@ const Product = ({
           </Text>
           <Text h3 color="#CE7500" size={20} weight="bold">
             {title}
-            Test Title
           </Text>
         </Col>
       </Card.Header>
@@ -97,30 +112,6 @@ const Product = ({
         </Row>
       </Card.Footer>
     </Card>
-    // <div className="product__container">
-    //   <img className="product__container_img" src={image} alt="img" />
-    //   <p className="product__container_title">{title}</p>
-    //   <span className="product__container_rating">{valoration}⭐️</span>
-    //   <p className="product__container_description">{description}</p>
-    //   <div className="product__bottom">
-    //     <p className="product__bottom_price">€{price}</p>
-    //     {added ? (
-    //       <button disabled style={{ color: "white" }}>
-    //         Added
-    //       </button>
-    //     ) : (
-    //       <button
-    //         variant="outlined"
-    //         color="error"
-    //         size="large"
-    //         className="product__bottom_buttonAdd"
-    //         onClick={addToCart}
-    //       >
-    //         Add
-    //       </button>
-    //     )}
-    //   </div>
-    // </div>
   );
 };
 
