@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Catalog from "./components/Store/Catalog/Catalog";
 import FreeShippingMin from "./components/FreeShippingMin/FreeShippingMin";
 import Features from "./components/Features/Features";
+import Footer from "./components/Footer/Footer";
 
 
 
@@ -36,6 +37,9 @@ function App() {
       </div>
       <div>
         <Features />
+      </div>
+      <div>
+        <Footer />
       </div>
     </>
   );
