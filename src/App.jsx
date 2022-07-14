@@ -15,8 +15,7 @@ import Footer from "./components/Footer/Footer";
 
 
 /* Setting the initial state of the shopping cart to the local storage. */
-const initialShoppingCart =
-  JSON.parse(localStorage.getItem("shoppingCart")) || [];
+const initialStorage = JSON.parse(localStorage.getItem("saveCache")) || [];
 
 /**
  * The App function returns a div with a className of main__app, which contains the Navbar and Catalog
@@ -24,7 +23,12 @@ const initialShoppingCart =
  * @returns The Navbar, Catalog, and FreeShippingMin components.
  */
 function App() {
-  const [shoppingCart, setShoppingCart] = useState ([]);
+  const [shoppingCart, setShoppingCart] = useState (initialStorage);
+
+  /* Saving the shopping cart to the local storage. */
+  useEffect (() =>{
+    localStorage.setItem("saveCache", JSON.stringify(shoppingCart));
+  },[shoppingCart])
 
   return (
     <>
