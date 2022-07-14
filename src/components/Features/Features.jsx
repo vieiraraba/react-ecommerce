@@ -9,25 +9,25 @@ const Features = () => {
   return (
     <div className="features__container">
         <div className="firstFeature__container">
-            <div><FaReply size="6rem"/></div>
+            <span><FaReply size="6rem"/></span>
             <h3>FREE RETURN</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
         </div>
 
         <div className="secondFeature__container">
-            <div><FaCreditCard size="6rem"/></div>
+            <span><FaCreditCard size="6rem"/></span>
             <h3>SECURED PAYMENT</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
         </div>
 
         <div className="thirdFeature__container">
-            <div><FaHeadset size="6rem"/></div>
+            <span><FaHeadset size="6rem"/></span>
             <h3>CUSTOMER SUPPORT</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
         </div>
 
         <div className="fourthFeature__container">
-            <div><FaShippingFast size="6rem"/></div>
+            <span><FaShippingFast size="6rem"/></span>
             <h3>FREE SHIPPING</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
         </div>

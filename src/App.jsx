@@ -31,14 +31,8 @@ function App() {
       <div className="main__app">
         <Navbar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
         <Catalog shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
-      </div>
-      <div>
         <FreeShippingMin />
-      </div>
-      <div>
         <Features />
-      </div>
-      <div>
         <Footer />
       </div>
     </>
