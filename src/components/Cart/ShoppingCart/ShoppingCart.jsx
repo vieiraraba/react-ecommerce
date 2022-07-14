@@ -12,17 +12,6 @@ import { Button } from "@nextui-org/react";
 
 const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
   const [totalItemPrice, setTotalItemPrice] = useState(0);
-
-  // useEffect(() => {
-  // 	let totalPrice = 0;
-
-  // 	cart.forEach((item) => {
-  // 		totalPrice += item.cartPrice * item.amount;
-  // 	});
-
-  // 	setTotal(totalPrice);
-  // }, [cart]);
-
   /* A hook that is used to update the state of the component. */
   useEffect(() => {
     let sumTotalItemPrice = 0;
@@ -68,7 +57,7 @@ const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
       </ul>
       <div className="cart__bottom">
         <p className="cart__total">Total:</p>
-        <p className="cart__total_price">€{totalItemPrice}</p>
+        <p className="cart__total_price">€{Math.round(totalItemPrice*100)/100}</p>
       </div>
       <Button bordered color="warning" auto>
         Checkout

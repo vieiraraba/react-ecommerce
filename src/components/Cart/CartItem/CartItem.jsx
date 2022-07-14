@@ -24,7 +24,7 @@ const CartItem = ({
   * @returns the value of the itemQuantity property of the item object.
   */
   const restQuantityItem = () => {
-    if (itemQuantity === 1) return;
+    if (itemQuantity === 1)return;
     shoppingCart.forEach((item) => {
       if (item.itemId === itemId) {
         item.itemQuantity -= 1;
