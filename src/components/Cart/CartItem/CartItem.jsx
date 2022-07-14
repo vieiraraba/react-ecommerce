@@ -14,41 +14,45 @@ const CartItem = ({
   itemTitle,
   itemPrice,
   itemImage,
-  cart,
-  setCart,
+  shoppingCart,
+  setShoppingCart,
   itemQuantity,
 }) => {
-  // const [amount, setAmount] = useState(quantity);
+ /**
+  * If the item quantity is 1, return. Otherwise, find the item in the shopping cart and decrement the
+  * item quantity. Then, set the shopping cart to the new shopping cart.
+  * @returns the value of the itemQuantity property of the item object.
+  */
+  const restQuantityItem = () => {
+    if (itemQuantity === 1) return;
+    shoppingCart.forEach((item) => {
+      if (item.itemId === itemId) {
+        item.itemQuantity -= 1;
+      }
+    });
+    setShoppingCart([...shoppingCart]);
+  };
 
-  // const handleAdd = () => {
-  //   setAmount(amount + 1);
-
-  //   cart.forEach((item) => {
-  //     if (item.cartId === id) {
-  //       item.amount = amount + 1;
-  //     }
-  //   });
-
-  //   setCart([...cart]);
-  // };
-
-  // const handleMinus = () => {
-  //   if (amount === 1) return;
-  //   setAmount(amount - 1);
-
-  //   cart.forEach((item) => {
-  //     if (item.cartId === id) {
-  //       item.amount = amount - 1;
-  //     }
-  //   });
-
-  //   setCart([...cart]);
-  // };
-
-  // const handleRemove = () => {
-  //   const newCart = cart.filter((item) => item.cartId !== id);
-  //   setCart(newCart);
-  // };
+ /**
+  * If the itemId of the item in the shoppingCart array is equal to the itemId of the item that was
+  * clicked, then add 1 to the itemQuantity of that item.
+  */
+  const addQuantityItem = () => {
+    shoppingCart.forEach((item) => {
+      if (item.itemId === itemId) {
+        item.itemQuantity += 1;
+      }
+    });
+    setShoppingCart([...shoppingCart]);
+  };
+ /**
+  * The function itemRemove() filters the shoppingCart array and returns a new array with the item
+  * removed.
+  */
+  const itemRemove = () => {
+    const newCart = shoppingCart.filter((item) => item.itemId !== itemId);
+    setShoppingCart(newCart);
+  };
 
   /* Returning the JSX code for the component. */
   return (
@@ -58,15 +62,14 @@ const CartItem = ({
         <p className="cart__item_title">{itemTitle}</p>
         <p className="cart__item_price">€ {itemPrice}</p>
         <div className="cart__item_bottom">
-          <Button light color="error" auto>
+          <Button light color="error" auto onClick={restQuantityItem}>
             -
           </Button>
-          {/* <p>{amount}</p> */}
-          <p>1</p>
-          <Button light color="error" auto>
+          <p>{itemQuantity}</p>
+          <Button light color="error" auto onClick={addQuantityItem}>
             +
           </Button>
-          <Button light color="error" auto>
+          <Button light color="error" auto onClick={itemRemove}>
             Remove
           </Button>
         </div>

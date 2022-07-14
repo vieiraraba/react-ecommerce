@@ -10,9 +10,8 @@ import { useState, useEffect } from "react";
 /* Importing the Button component from the NextUI library. */
 import { Button } from "@nextui-org/react";
 
-
 const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
-  const [total, setTotal] = useState(0);
+  const [totalItemPrice, setTotalItemPrice] = useState(0);
 
   // useEffect(() => {
   // 	let totalPrice = 0;
@@ -23,51 +22,53 @@ const ShoppingCart = ({ shoppingCart, setShoppingCart }) => {
 
   // 	setTotal(totalPrice);
   // }, [cart]);
+
+  /* A hook that is used to update the state of the component. */
+  useEffect(() => {
+    let sumTotalItemPrice = 0;
+    shoppingCart.forEach((item) => {
+      sumTotalItemPrice += item.itemPrice * item.itemQuantity;
+    });
+
+    setTotalItemPrice(sumTotalItemPrice);
+  }, [shoppingCart]);
+
   return (
     <div className="main__cart">
       <h3>Shopping Cart</h3>
       <ul className="cart__list">
-       {/* Mapping through the shoppingCart array and returning a CartItem component for each item in
+        {/* Mapping through the shoppingCart array and returning a CartItem component for each item in
        the array. */}
-        {shoppingCart.map(
-          ({ itemId, itemTitle, itemPrice, itemImage, itemQuantity }) => {
-            return (
-              <CartItem
-                key={itemId}
-                itemId={itemId}
-                itemTitle={itemTitle}
-                itemPrice={itemPrice}
-                itemImage={itemImage}
-                itemQuantity={itemQuantity}
-              />
-            );
-          }
+
+        {/* A ternary operator. If the shoppingCart array is empty, it will return the Empty Cart text.
+        If the shoppingCart array is not empty, it will map through the array and return a CartItem
+        component for each item in the array. */}
+
+        {shoppingCart.length > 0 ? (
+          shoppingCart.map(
+            ({ itemId, itemTitle, itemPrice, itemImage, itemQuantity }) => {
+              return (
+                <CartItem
+                  key={itemId}
+                  itemId={itemId}
+                  itemTitle={itemTitle}
+                  itemPrice={itemPrice}
+                  itemImage={itemImage}
+                  itemQuantity={itemQuantity}
+                  shoppingCart={shoppingCart}
+                  setShoppingCart={setShoppingCart}
+                />
+              );
+            }
+          )
+        ) : (
+          <h1>Empty Cart</h1>
         )}
 
-        {/* {cart.length === 0 ? (
-					<p>No items in the cart</p>
-				) : (
-					<div>
-						{cart.map((item, index) => {
-							return (
-								<CartItem
-									key={index}
-									id={item.cartId}
-									title={item.cartTitle}
-									price={item.cartPrice}
-									image={item.cartImage}
-									quantity={item.amount}
-									cart={cart}
-									setCart={setCart}
-								/>
-							);
-						})}
-					</div>
-				)} */}
       </ul>
       <div className="cart__bottom">
         <p className="cart__total">Total:</p>
-        <p className="cart__total_price">€{total}</p>
+        <p className="cart__total_price">€{totalItemPrice}</p>
       </div>
       <Button bordered color="warning" auto>
         Checkout
