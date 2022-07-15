@@ -15,16 +15,16 @@ import Product from "../Product/Product";
 
 const Catalog = ({ shoppingCart, setShoppingCart }) => {
   const [products, setSaveProducts] = useState([]);
-
+  const url = "http://localhost:3001/products";
   /* Fetching the products from the API and setting the state of the products. */
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("http://localhost:3001/products");
+      const response = await fetch(url);
       const data = await response.json();
       setSaveProducts(data);
     };
     fetchProducts();
-  }, []);
+  }, [url]);
 
   return (
     /* Mapping the products array and returning a Product component for each product. */
