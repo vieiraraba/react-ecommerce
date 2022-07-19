@@ -2,13 +2,15 @@
 import "./Navbar.css";
 
 /* Importing the Popover and Button components from the @nextui-org/react package. */
-import { Popover, Button } from "@nextui-org/react";
+import { Popover, Button, User } from "@nextui-org/react";
 
 /* Importing the shopping bag icon from the react-icons package. */
-import{FaShoppingBasket} from "react-icons/fa";
+import {FaShoppingBasket, FaSkullCrossbones} from "react-icons/fa";
 
 /* Importing the ShoppingCart component from the ShoppingCart.js file. */
 import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
+
+import { UserTwitterCard } from "../Avatar/Avatar";
 
 
 
@@ -28,10 +30,25 @@ const Navbar = ({ shoppingCart, setShoppingCart }) => {
       
       {/* Creating a popover that will display the shopping cart when the user clicks on the cart
       button. */}
-      <div className="navbar__container_icons">
+      <div div className="navbar__container_icons">
+      <Popover>
+					<Popover.Trigger>
+						<User
+							as='button'
+							src='https://img.seadn.io/files/0c1876d30fd1f424c2b52f4c844c0992.png?auto=format&fit=max&w=384'
+							name='Ricardo Vieira'
+							description='Hola,'
+						/>
+					</Popover.Trigger>
+					<Popover.Content css={{ px: "$4", py: "$2" }}>
+						<UserTwitterCard />
+					</Popover.Content>
+				</Popover>
+
+
         <Popover>
           <Popover.Trigger>
-            <Button auto ghost>
+            <Button className="btn" auto ghost>
               <FaShoppingBasket size='5.5rem' />
             </Button>
           </Popover.Trigger>
@@ -42,7 +59,18 @@ const Navbar = ({ shoppingCart, setShoppingCart }) => {
             />
           </Popover.Content>
         </Popover>
-      </div>
+
+        <Popover>
+          <Popover.Trigger>
+            <Button className="btn" auto ghost>
+              <FaSkullCrossbones size='5.5rem' />
+            </Button>
+          </Popover.Trigger>
+          <Popover.Content css={{ width: "max-content" }}>
+           <h1>---❤---</h1>
+          </Popover.Content>
+        </Popover>
+        </div>
     </div>
   );
 };

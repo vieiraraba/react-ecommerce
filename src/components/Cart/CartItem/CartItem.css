@@ -1,21 +1,23 @@
 .cart__item {
   display: flex;
   border: 2px solid black;
+  border-radius: 10px;
+  gap: 0.5rem;
 }
 .cart__item_image {
   height: 4rem;
+  border-radius: 10px;
 }
 
 .cart__list {
   color: black;
 }
 
+.cart__list ul{
+  padding: 1rem
+}
+
 .cart__item_bottom {
   display: flex;
   align-items: center;
-}
-
-.nextui-c-cVVQUL {
-  /* right: 9rem !important; */
-  /* width: max-content !important; */
 }

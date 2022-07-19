@@ -38,19 +38,23 @@ const Product = ({
     ]);
     setItemAdded(true);
   };
-  //   useEffect(() => {
-  //     cart.forEach((item) => {
-  //       if (item.cartId === id) {
-  //         setAdded(true);
-  //       }
-  //     });
-  //   });
-  /* A React component. */
+
+  useEffect(() => {
+    const result = shoppingCart.some((item) => {
+      if (item.itemId === id) {
+        return true;
+      }
+      return false;
+    });
+    result && setItemAdded(true);
+    !result  && setItemAdded(false);
+  }, [id, shoppingCart]);
+
   return (
     <Card css={{ w: "15%", h: "330px" }}>
-      <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+      <Card.Header className="card__header" css={{ position: "absolute", zIndex: 1, top: 5 }}>
         <Col>
-          <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+          <Text size={12} weight="bold" transform="uppercase" color="black">
             New
           </Text>
           <Text h3 color="#CE7500" size={20} weight="bold">

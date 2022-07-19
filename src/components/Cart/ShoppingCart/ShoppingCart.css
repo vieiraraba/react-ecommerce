@@ -4,6 +4,7 @@
   justify-content: space-evenly;
   color: black;
   padding: 20px;
+  gap:1rem;
 }
 .cart-title {
   text-align: center;
