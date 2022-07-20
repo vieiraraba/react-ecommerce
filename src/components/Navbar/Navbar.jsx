@@ -73,6 +73,8 @@ const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }
           <Wishlist
             wishlistCart={wishlistCart}
             setWishlistCart={setWishlistCart}
+            shoppingCart={shoppingCart}
+            setShoppingCart={setShoppingCart}
             />
           </Popover.Content>
         </Popover>

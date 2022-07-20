@@ -66,6 +66,42 @@ const CartItem = ({
 		}
 	};
 
+/**
+ * Check if the item is already in the shopping cart.
+ * @returns the value of the variable noItemInShoppingCart.
+ */
+  const checkShoppingCart = () => {
+		let noItemInShoppingCart = false;
+		shoppingCart.forEach((item) => {
+			if (item.itemId === itemId) {
+				noItemInShoppingCart = true;
+			}
+		});
+		console.log(noItemInShoppingCart);
+		return noItemInShoppingCart;
+	};
+
+
+/**
+ * If the item is already in the shopping cart, don't add it again. Otherwise, add it to the shopping
+ * cart.
+ * @returns the value of the function.
+ */
+ const addToShoppingCart = () => {
+  if (checkShoppingCart()) return;
+  setShoppingCart([
+    ...shoppingCart,
+    {
+      itemId: itemId,
+      itemTitle: itemTitle,
+      itemPrice: itemPrice,
+      itemImage: itemImage,
+      itemQuantity: 1,
+    },
+  ]);
+  itemRemove();
+};
+
 
   /* Returning the JSX code for the component. */
   return (
@@ -76,7 +112,7 @@ const CartItem = ({
         <p className="cart__item_price">€ {itemPrice}</p>
         <div className="cart__item_bottom">
         {wish ? (
-						<Button light color='error' auto>
+						<Button light color='error' auto onClick={addToShoppingCart} >
 							Add to Cart
 						</Button>
 					) : (

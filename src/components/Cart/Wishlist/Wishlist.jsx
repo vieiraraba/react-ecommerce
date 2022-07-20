@@ -15,15 +15,14 @@ import "./Wishlist.css";
 
 
 
-const Wishlist = ({wishlistCart,setWishlistCart}) => {
+const Wishlist = ({wishlistCart,setWishlistCart,shoppingCart,setShoppingCart}) => {
 const [totalItemWishlist, setTotalItemWishlist] = useState(0);
 
 useEffect(()=>{
   let totalOfWishlistArrayItems = wishlistCart.length
   setTotalItemWishlist(totalOfWishlistArrayItems)
-  
-},[wishlistCart]);
 
+},[wishlistCart]);
 
 return (
 		<div className='main__cart'>
@@ -42,6 +41,8 @@ return (
 									itemQuantity={itemQuantity}
 									wishlistCart={wishlistCart}
 									setWishlistCart={setWishlistCart}
+									shoppingCart={shoppingCart}
+									setShoppingCart={setShoppingCart}
 									wish={true}
 								/>
 							);
