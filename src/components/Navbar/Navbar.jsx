@@ -72,7 +72,7 @@ const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }
           <Popover.Content css={{ width: "max-content" }}>
           <Wishlist
             wishlistCart={wishlistCart}
-            setWishlist={setWishlistCart}
+            setWishlistCart={setWishlistCart}
             />
           </Popover.Content>
         </Popover>

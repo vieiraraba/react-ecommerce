@@ -7,7 +7,10 @@ import { useState, useEffect } from "react";
 /* Importing the Card, Col, Row, Button, and Text components from the NextUI library. */
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
+/* Importing the AiOutlineHeart and AiFillHeart icons from the react-icons/ai library. */
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+
+
 /* A function that takes in a bunch of props and returns a react component. */
 const Product = ({
   id,
@@ -23,6 +26,7 @@ const Product = ({
   setWishlistCart,
   menuState,
   setMenu,
+
 }) => {
   /* A function that adds an item to the shopping cart. */
 

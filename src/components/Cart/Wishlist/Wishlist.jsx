@@ -42,6 +42,7 @@ return (
 									itemQuantity={itemQuantity}
 									wishlistCart={wishlistCart}
 									setWishlistCart={setWishlistCart}
+									wish={true}
 								/>
 							);
 						},

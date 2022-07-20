@@ -17,6 +17,9 @@ const CartItem = ({
   shoppingCart,
   setShoppingCart,
   itemQuantity,
+  wishlistCart,
+  setWishlistCart,
+  wish
 }) => {
  /**
   * If the item quantity is 1, return. Otherwise, find the item in the shopping cart and decrement the
@@ -45,14 +48,24 @@ const CartItem = ({
     });
     setShoppingCart([...shoppingCart]);
   };
- /**
-  * The function itemRemove() filters the shoppingCart array and returns a new array with the item
-  * removed.
-  */
+
+/**
+ * If the item is in the wishlist, remove it from the wishlist. If the item is in the shopping cart,
+ * remove it from the shopping cart.
+ */
   const itemRemove = () => {
-    const newCart = shoppingCart.filter((item) => item.itemId !== itemId);
-    setShoppingCart(newCart);
-  };
+		if (wish) {
+			const newWishList = wishlistCart.filter(
+				(wishItem) => wishItem.itemId !== itemId,
+			);
+			setWishlistCart(newWishList);
+
+		} else {
+			const newCart = shoppingCart.filter((item) => item.itemId !== itemId);
+			setShoppingCart(newCart);
+		}
+	};
+
 
   /* Returning the JSX code for the component. */
   return (
@@ -62,13 +75,21 @@ const CartItem = ({
         <p className="cart__item_title">{itemTitle}</p>
         <p className="cart__item_price">€ {itemPrice}</p>
         <div className="cart__item_bottom">
-          <Button light color="error" auto onClick={restQuantityItem}>
-            -
-          </Button>
-          <p>{itemQuantity}</p>
-          <Button light color="error" auto onClick={addQuantityItem}>
-            +
-          </Button>
+        {wish ? (
+						<Button light color='error' auto>
+							Add to Cart
+						</Button>
+					) : (
+						<>
+							<Button light color='error' auto onClick={restQuantityItem}>
+								-
+							</Button>
+							<p>{itemQuantity}</p>
+							<Button light color='error' auto onClick={addQuantityItem}>
+								+
+							</Button>
+						</>
+					)}
           <Button light color="error" auto onClick={itemRemove}>
             Remove
           </Button>
