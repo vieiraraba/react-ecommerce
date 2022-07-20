@@ -13,7 +13,7 @@ import Product from "../Product/Product";
 
 
 
-const Catalog = ({ shoppingCart, setShoppingCart }) => {
+const Catalog = ({ shoppingCart, setShoppingCart, wishlistCart, setWishlistCart }) => {
   const [products, setSaveProducts] = useState([]);
   const url = "http://localhost:3001/products";
   /* Fetching the products from the API and setting the state of the products. */
@@ -39,6 +39,8 @@ const Catalog = ({ shoppingCart, setShoppingCart }) => {
             image={image}
             shoppingCart={shoppingCart}
             setShoppingCart={setShoppingCart}
+            wishlistCart={wishlistCart}
+						setWishlistCart={setWishlistCart}
           />
         );
       })}

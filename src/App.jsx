@@ -24,6 +24,7 @@ const initialStorage = JSON.parse(localStorage.getItem("saveCache")) || [];
  */
 function App() {
   const [shoppingCart, setShoppingCart] = useState (initialStorage);
+  const [wishlistCart, setWishlistCart] = useState([]);
 
   /* Saving the shopping cart to the local storage. */
   useEffect (() =>{
@@ -33,8 +34,10 @@ function App() {
   return (
     <>
       <div className="main__app">
-        <Navbar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
-        <Catalog shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} />
+        <Navbar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} wishlistCart={wishlistCart}
+				setWishlistCart={setWishlistCart}/>
+        <Catalog shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} wishlistCart={wishlistCart}
+				setWishlistCart={setWishlistCart}/>
         <FreeShippingMin />
         <Features />
         <Footer />

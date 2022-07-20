@@ -10,11 +10,14 @@ import {FaShoppingBasket, FaSkullCrossbones} from "react-icons/fa";
 /* Importing the ShoppingCart component from the ShoppingCart.js file. */
 import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
 
+/* Importing the Wishlist component from the Wishlist.js file. */
+import Wishlist from "../Cart/Wishlist/Wishlist";
+
 import { UserTwitterCard } from "../Avatar/Avatar";
 
 
 
-const Navbar = ({ shoppingCart, setShoppingCart }) => {
+const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }) => {
   return (
     /* Creating a navbar with links. */
     <div className="navbar__container">
@@ -67,7 +70,10 @@ const Navbar = ({ shoppingCart, setShoppingCart }) => {
             </Button>
           </Popover.Trigger>
           <Popover.Content css={{ width: "max-content" }}>
-           <h1>---❤---</h1>
+          <Wishlist
+            wishlistCart={wishlistCart}
+            setWishlist={setWishlistCart}
+            />
           </Popover.Content>
         </Popover>
         </div>

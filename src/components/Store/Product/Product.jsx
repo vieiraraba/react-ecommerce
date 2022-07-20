@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 /* Importing the Card, Col, Row, Button, and Text components from the NextUI library. */
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 /* A function that takes in a bunch of props and returns a react component. */
 const Product = ({
   id,
@@ -18,12 +19,15 @@ const Product = ({
   quantity,
   shoppingCart,
   setShoppingCart,
+  wishlistCart,
+  setWishlistCart,
   menuState,
   setMenu,
 }) => {
   /* A function that adds an item to the shopping cart. */
 
   const [itemAdded, setItemAdded] = useState(false);
+  const [wishlistAdded, setWishlistAdded] = useState(false);
 
   const addToCart = () => {
     setShoppingCart([
@@ -39,6 +43,8 @@ const Product = ({
     setItemAdded(true);
   };
 
+/* Checking if the item is already in the shopping cart. If it is, it sets the itemAdded state to true.
+If it is not, it sets the itemAdded state to false. */
   useEffect(() => {
     const result = shoppingCart.some((item) => {
       if (item.itemId === id) {
@@ -47,18 +53,61 @@ const Product = ({
       return false;
     });
     result && setItemAdded(true);
-    !result  && setItemAdded(false);
+    !result && setItemAdded(false);
   }, [id, shoppingCart]);
+
+  /**
+   * When the user clicks the add to wishlist button, the item is added to the wishlist cart.
+   */
+  const addToWishlistCart = () => {
+    setWishlistCart([
+      ...wishlistCart,
+      {
+        itemId: id,
+        itemTitle: title,
+        itemPrice: price,
+        itemImage: image,
+        itemQuantity: 1,
+      },
+    ]);
+    // setItemAdded(true);
+  };
+/* Checking if the item is already in the wishlist cart. If it is, it sets the wishlistAdded state to
+true.
+If it is not, it sets the wishlistAdded state to false. */
+  useEffect(() => {
+    const result = wishlistCart.some((item) => {
+      if (item.itemId === id) {
+        return true;
+      }
+      return false;
+    });
+    result && setWishlistAdded(true);
+    !result && setWishlistAdded(false);
+  }, [id, wishlistCart]);
+
 
   return (
     <Card css={{ w: "15%", h: "330px" }}>
-      <Card.Header className="card__header" css={{ position: "absolute", zIndex: 1, top: 5 }}>
-        <Col>
-          <Text size={12} weight="bold" transform="uppercase" color="black">
+      <Card.Header
+        className="card__header"
+        css={{ position: "absolute", zIndex: 1, top: 5 }}
+      >
+        <Col className="col__header">
+          <Text size={12} weight="bold" transform="uppercase" color="red">
             New
           </Text>
-          <Text h3 color="#CE7500" size={20} weight="bold">
+          <Text h3 color="black" size={25} weight="bold">
             {title}
+            <Button
+            className="wishlist__Btn"
+            light
+            color="error"
+            onClick={addToWishlistCart}
+            disabled={wishlistAdded}
+            >
+              {wishlistAdded ?  <AiFillHeart size='5rem'  /> : <AiOutlineHeart size="5rem" />}
+            </Button>
           </Text>
         </Col>
       </Card.Header>

@@ -12,6 +12,16 @@
   background: rgba(255, 255, 255, 0.5);;
 }
 
+.col__header{
+  display: flex;
+  flex-direction: column;
+}
+
+.wishlist__Btn{
+  height:1rem;
+  width:1rem;
+}
+
 .product__container_title {
   font-size: large;
   font-family: "Roboto";

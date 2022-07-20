@@ -12,6 +12,7 @@
     "conventionalCommits.scopes": [
         "Catalog,jsx",
         "shoppingCart",
-        "Avatar"
+        "Avatar",
+        "Wishlist"
     ]
 }
