@@ -54,32 +54,32 @@ const CartItem = ({
  * remove it from the shopping cart.
  */
   const itemRemove = () => {
-		if (wish) {
-			const newWishList = wishlistCart.filter(
-				(wishItem) => wishItem.itemId !== itemId,
-			);
-			setWishlistCart(newWishList);
+    if (wish) {
+      const newWishList = wishlistCart.filter(
+        (wishItem) => wishItem.itemId !== itemId,
+      );
+      setWishlistCart(newWishList);
 
-		} else {
-			const newCart = shoppingCart.filter((item) => item.itemId !== itemId);
-			setShoppingCart(newCart);
-		}
-	};
+    } else {
+      const newCart = shoppingCart.filter((item) => item.itemId !== itemId);
+      setShoppingCart(newCart);
+    }
+  };
 
 /**
  * Check if the item is already in the shopping cart.
  * @returns the value of the variable noItemInShoppingCart.
  */
   const checkShoppingCart = () => {
-		let noItemInShoppingCart = false;
-		shoppingCart.forEach((item) => {
-			if (item.itemId === itemId) {
-				noItemInShoppingCart = true;
-			}
-		});
-		console.log(noItemInShoppingCart);
-		return noItemInShoppingCart;
-	};
+    let noItemInShoppingCart = false;
+    shoppingCart.forEach((item) => {
+      if (item.itemId === itemId) {
+        noItemInShoppingCart = true;
+      }
+    });
+    console.log(noItemInShoppingCart);
+    return noItemInShoppingCart;
+  };
 
 
 /**
@@ -111,21 +111,25 @@ const CartItem = ({
         <p className="cart__item_title">{itemTitle}</p>
         <p className="cart__item_price">€ {itemPrice}</p>
         <div className="cart__item_bottom">
+
+       {/* A ternary operator. If the value of the variable wish is true, then the first part of the
+       ternary operator is executed. Otherwise, the second part of the ternary operator is executed. */}
+
         {wish ? (
-						<Button light color='error' auto onClick={addToShoppingCart} >
-							Add to Cart
-						</Button>
-					) : (
-						<>
-							<Button light color='error' auto onClick={restQuantityItem}>
-								-
-							</Button>
-							<p>{itemQuantity}</p>
-							<Button light color='error' auto onClick={addQuantityItem}>
-								+
-							</Button>
-						</>
-					)}
+            <Button light color='error' auto onClick={addToShoppingCart} >
+              Add to Cart
+            </Button>
+          ) : (
+            <>
+              <Button light color='error' auto onClick={restQuantityItem}>
+                -
+              </Button>
+              <p>{itemQuantity}</p>
+              <Button light color='error' auto onClick={addQuantityItem}>
+                +
+              </Button>
+            </>
+          )}
           <Button light color="error" auto onClick={itemRemove}>
             Remove
           </Button>

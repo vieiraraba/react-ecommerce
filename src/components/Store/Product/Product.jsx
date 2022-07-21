@@ -86,6 +86,7 @@ If it is not, it sets the wishlistAdded state to false. */
       }
       return false;
     });
+    /* Checking if the result is true, if it is, it sets the wishlistAdded state to true. */
     result && setWishlistAdded(true);
     !result && setWishlistAdded(false);
   }, [id, wishlistCart]);

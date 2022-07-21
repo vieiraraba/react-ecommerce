@@ -25,6 +25,8 @@ h1{
 .navbar__container_icons{
     display: flex;
     align-items:center;
+    padding-right: 2rem;
+    gap:2vw;
 	margin-right: 2rem;
 }
 
@@ -34,4 +36,7 @@ h1{
     width: 2px;
     color:black;
     background-color:white;
+}
+.icon{
+    padding:0;
 }
