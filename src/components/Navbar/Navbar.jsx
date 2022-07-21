@@ -13,6 +13,7 @@ import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
 /* Importing the Wishlist component from the Wishlist.js file. */
 import Wishlist from "../Cart/Wishlist/Wishlist";
 
+/* Importing the UserTwitterCard component from the Avatar.js file. */
 import { UserTwitterCard } from "../Avatar/Avatar";
 
 
@@ -52,7 +53,7 @@ const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }
         <Popover>
           <Popover.Trigger>
             <Button className="btn" auto ghost>
-              <FaShoppingBasket size='5.5rem' />
+              <FaShoppingBasket className="icon" size="1.5rem"/>
             </Button>
           </Popover.Trigger>
           <Popover.Content css={{ width: "max-content" }}>
@@ -66,7 +67,7 @@ const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }
         <Popover>
           <Popover.Trigger>
             <Button className="btn" auto ghost>
-              <FaSkullCrossbones size='5.5rem' />
+              <FaSkullCrossbones className="icon" size='1.5rem' />
             </Button>
           </Popover.Trigger>
           <Popover.Content css={{ width: "max-content" }}>
