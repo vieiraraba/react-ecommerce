@@ -1,21 +1,63 @@
-/* Importing the css file for the login page. */
-import './Login.css';
+import React, { useState } from "react";
+import { LoginVerification, getRandomAvatar } from "../Utils/Utils";
 
-/* Importing the Link component from the react-router-dom package. */
-import { Link } from "react-router-dom";
+export default function LoginPlain({ userCache, setUserCache }) {
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
+	const [error, setError] = useState("");
 
-/**
- * This is a login page
- * @returns A React element.
- */
-const Login = () => {
-    return (
-        <>
-        This is a login page
-        <Link to="/">Home</Link>
-        </>
-    )
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		setError("");
+
+
+		try {
+			await LoginVerification({ username, password });
+			const url = await getRandomAvatar();
+
+			setUsername("");
+			setPassword("");
+			setError("");
+			setUserCache({ username: username, avatar: url });
+		} catch (error) {
+			setError("Incorrect username or password!");
+		}
+		setIsLoading(false);
+	};
+
+	return (
+		<div className='Login'>
+			<div className='Login-container'>
+				{userCache?.username ? (
+					<>
+						<h1> Hello {userCache.username}!</h1>
+						<button onClick={() => setUserCache({})}>Log Out</button>
+					</>
+				) : (
+					<form className='form' onSubmit={onSubmit}>
+						{error && <p className='error'>{error}</p>}
+						<p>Please Login!</p>
+						<input
+							type='text'
+							placeholder='username'
+							autoComplete='new-username'
+							value={username}
+							onChange={(e) => setUsername(e.currentTarget.value)}
+						/>
+						<input
+							type='password'
+							placeholder='password'
+							autoComplete='new-password'
+							value={password}
+							onChange={(e) => setPassword(e.currentTarget.value)}
+						/>
+						<button className='submit' type='submit' disabled={isLoading}>
+							{isLoading ? "Logging in..." : "Login In"}
+						</button>
+					</form>
+				)}
+			</div>
+		</div>
+	);
 }
-
-
-export default Login;

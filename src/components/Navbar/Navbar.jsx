@@ -1,3 +1,9 @@
+/* Importing the ShoppingCart component from the ShoppingCart.js file. */
+import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
+
+/* Importing the Login component from the Login.js file. */
+import Login from "../../components/Login/Login";
+
 /* Importing the css file for the Navbar component. */
 import "./Navbar.css";
 
@@ -7,8 +13,6 @@ import { Popover, Button, User } from "@nextui-org/react";
 /* Importing the shopping bag icon from the react-icons package. */
 import {FaShoppingBasket, FaSkullCrossbones} from "react-icons/fa";
 
-/* Importing the ShoppingCart component from the ShoppingCart.js file. */
-import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
 
 /* Importing the Wishlist component from the Wishlist.js file. */
 import Wishlist from "../Cart/Wishlist/Wishlist";
@@ -18,7 +22,7 @@ import { UserTwitterCard } from "../Avatar/Avatar";
 
 
 
-const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }) => {
+const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart, userCache, setUserCache }) => {
   return (
     /* Creating a navbar with links. */
     <div className="navbar__container">
@@ -37,15 +41,23 @@ const Navbar = ({ shoppingCart, setShoppingCart, wishlistCart ,setWishlistCart }
       <div div className="navbar__container_icons">
       <Popover>
 					<Popover.Trigger>
-						<User
-							as='button'
-							src='https://img.seadn.io/files/0c1876d30fd1f424c2b52f4c844c0992.png?auto=format&fit=max&w=384'
-							name='Ricardo Vieira'
-							description='Hola,'
-						/>
+						{userCache?.username ? (
+							<User
+								as='button'
+								src={userCache?.avatar}
+								name={userCache.username}
+								description=''
+							/>
+						) : (
+							<Button color='warning' light>
+								Login
+							</Button>
+						)}
 					</Popover.Trigger>
+
+					
 					<Popover.Content css={{ px: "$4", py: "$2" }}>
-						<UserTwitterCard />
+						<Login userCache={userCache} setUserCache={setUserCache} />
 					</Popover.Content>
 				</Popover>
 

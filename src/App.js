@@ -24,6 +24,7 @@ import "./App.css";
 /* Setting the initial state of the shopping cart to the local storage. */
 const initialStorage = JSON.parse(localStorage.getItem("saveCache")) || [];
 const wishlistStorage = JSON.parse(localStorage.getItem("saveWishCache")) || [];
+const userCacheStorage = JSON.parse(localStorage.getItem("userCache")) || {};
 
 /**
  * The App function returns a div with a className of main__app, which contains the Navbar and Catalog
@@ -34,6 +35,7 @@ const wishlistStorage = JSON.parse(localStorage.getItem("saveWishCache")) || [];
 function App() {
   const [shoppingCart, setShoppingCart] = useState (initialStorage);
   const [wishlistCart, setWishlistCart] = useState(wishlistStorage);
+  const [userCache, setUserCache] = useState(userCacheStorage);
 
   /* Saving the shopping cart to the local storage. */
   useEffect (() =>{
@@ -45,11 +47,17 @@ function App() {
     localStorage.setItem("saveWishCache", JSON.stringify(wishlistCart));
   },[wishlistCart])
 
+/* Saving the userCache to the local storage. */
+  useEffect(() => {
+		localStorage.setItem("userCache", JSON.stringify(userCache));
+	}, [userCache]);
+
   return (
     <>
       <div className="main__app">
         <Navbar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} wishlistCart={wishlistCart}
-				setWishlistCart={setWishlistCart}/>
+				setWishlistCart={setWishlistCart} userCache={userCache}
+				setUserCache={setUserCache}/>
         <Catalog shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} wishlistCart={wishlistCart}
 				setWishlistCart={setWishlistCart}/>
         <FreeShippingMin />
