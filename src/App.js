@@ -17,6 +17,8 @@ import Features from "./components/Features/Features";
 /* Importing the Footer component from the Footer.js file. */
 import Footer from "./components/Footer/Footer";
 
+import toast, { Toaster } from "react-hot-toast";
+
 /* Importing the App.css file. */
 import "./App.css";
 
@@ -25,6 +27,18 @@ import "./App.css";
 const initialStorage = JSON.parse(localStorage.getItem("saveCache")) || [];
 const wishlistStorage = JSON.parse(localStorage.getItem("saveWishCache")) || [];
 const userCacheStorage = JSON.parse(localStorage.getItem("userCache")) || {};
+
+/**
+ * If the error parameter is true, return an error toast, otherwise return a success toast.
+ * @param message - The message you want to display
+ * @param [error=false] - boolean
+ * @returns The function is being returned.
+ */
+const notifyToast = (message, error = false) => {
+	if (error) return toast.error(message);
+	toast.success(message);
+};
+
 
 /**
  * The App function returns a div with a className of main__app, which contains the Navbar and Catalog
@@ -55,14 +69,21 @@ function App() {
   return (
     <>
       <div className="main__app">
-        <Navbar shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} wishlistCart={wishlistCart}
-				setWishlistCart={setWishlistCart} userCache={userCache}
-				setUserCache={setUserCache}/>
+        <Navbar 
+        shoppingCart={shoppingCart} 
+        setShoppingCart={setShoppingCart} 
+        wishlistCart={wishlistCart}
+				setWishlistCart={setWishlistCart} 
+        userCache={userCache}
+				setUserCache={setUserCache}
+        notifyToast={notifyToast}
+        />
         <Catalog shoppingCart={shoppingCart} setShoppingCart={setShoppingCart} wishlistCart={wishlistCart}
 				setWishlistCart={setWishlistCart}/>
         <FreeShippingMin />
         <Features />
         <Footer />
+        <Toaster position="top-center" reverseOrder={true}/>
       </div>
     </>
   );
