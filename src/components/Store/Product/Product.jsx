@@ -1,17 +1,8 @@
-/* Importing the CSS file for the Product component. */
 import "./Product.css";
-
-/* Importing the useState and useEffect hooks from the react library. */
 import { useState, useEffect } from "react";
-
-/* Importing the Card, Col, Row, Button, and Text components from the NextUI library. */
 import { Card, Col, Row, Button, Text } from "@nextui-org/react";
-
-/* Importing the AiOutlineHeart and AiFillHeart icons from the react-icons/ai library. */
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
-
-/* A function that takes in a bunch of props and returns a react component. */
 const Product = ({
   id,
   title,
@@ -26,10 +17,7 @@ const Product = ({
   setWishlistCart,
   menuState,
   setMenu,
-
 }) => {
-  /* A function that adds an item to the shopping cart. */
-
   const [itemAdded, setItemAdded] = useState(false);
   const [wishlistAdded, setWishlistAdded] = useState(false);
 
@@ -47,8 +35,6 @@ const Product = ({
     setItemAdded(true);
   };
 
-/* Checking if the item is already in the shopping cart. If it is, it sets the itemAdded state to true.
-If it is not, it sets the itemAdded state to false. */
   useEffect(() => {
     const result = shoppingCart.some((item) => {
       if (item.itemId === id) {
@@ -60,9 +46,6 @@ If it is not, it sets the itemAdded state to false. */
     !result && setItemAdded(false);
   }, [id, shoppingCart]);
 
-  /**
-   * When the user clicks the add to wishlist button, the item is added to the wishlist cart.
-   */
   const addToWishlistCart = () => {
     setWishlistCart([
       ...wishlistCart,
@@ -74,11 +57,8 @@ If it is not, it sets the itemAdded state to false. */
         itemQuantity: 1,
       },
     ]);
-    // setItemAdded(true);
   };
-/* Checking if the item is already in the wishlist cart. If it is, it sets the wishlistAdded state to
-true.
-If it is not, it sets the wishlistAdded state to false. */
+
   useEffect(() => {
     const result = wishlistCart.some((item) => {
       if (item.itemId === id) {
@@ -89,7 +69,6 @@ If it is not, it sets the wishlistAdded state to false. */
     result && setWishlistAdded(true);
     !result && setWishlistAdded(false);
   }, [id, wishlistCart]);
-
 
   return (
     <Card css={{ w: "15%", h: "330px" }}>
@@ -104,13 +83,17 @@ If it is not, it sets the wishlistAdded state to false. */
           <Text h3 color="black" size={25} weight="bold">
             {title}
             <Button
-            className="wishlist__Btn"
-            light
-            color="error"
-            onClick={addToWishlistCart}
-            disabled={wishlistAdded}
+              className="wishlist__Btn"
+              light
+              color="error"
+              onClick={addToWishlistCart}
+              disabled={wishlistAdded}
             >
-              {wishlistAdded ?  <AiFillHeart size='5rem'  /> : <AiOutlineHeart size="5rem" />}
+              {wishlistAdded ? (
+                <AiFillHeart size="5rem" />
+              ) : (
+                <AiOutlineHeart size="5rem" />
+              )}
             </Button>
           </Text>
         </Col>
