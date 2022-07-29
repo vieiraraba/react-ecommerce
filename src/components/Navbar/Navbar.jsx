@@ -16,18 +16,20 @@ import { FaShoppingBasket, FaSkullCrossbones } from "react-icons/fa";
 /* Importing the Wishlist component from the Wishlist.js file. */
 import Wishlist from "../Cart/Wishlist/Wishlist";
 
-/* Importing the UserTwitterCard component from the Avatar.js file. */
-import { UserTwitterCard } from "../Avatar/Avatar";
+import { useContext } from "react";
+
+import { UserDataContext } from "../../contexts/UserDataContext";
 
 const Navbar = ({
   shoppingCart,
   setShoppingCart,
   wishlistCart,
   setWishlistCart,
-  userCache,
-  setUserCache,
   notifyToast,
 }) => {
+  /* Destructuring the userCache and setUserCache from the UserDataContext. */
+  const { userCache, setUserCache } = useContext(UserDataContext);
+
   return (
     /* Creating a navbar with links. */
     <div className="navbar__container">
@@ -61,7 +63,7 @@ const Navbar = ({
           </Popover.Trigger>
 
           <Popover.Content css={{ px: "$4", py: "$2" }}>
-            <Login userCache={userCache} setUserCache={setUserCache} />
+            <Login />
           </Popover.Content>
         </Popover>
 

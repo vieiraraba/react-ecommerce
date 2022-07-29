@@ -1,13 +1,15 @@
 import CartItem from "../CartItem/CartItem";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button, Loading } from "@nextui-org/react";
+import {UserDataContext} from "../../../contexts/UserDataContext";
 
 import "./ShoppingCart.css";
 
 /* A function that takes in 4 parameters. */
-const ShoppingCart = ({ shoppingCart, setShoppingCart, userCache, notifyToast }) => {
+const ShoppingCart = ({ shoppingCart, setShoppingCart, notifyToast }) => {
 	const [totalItemPrice, setTotalItemPrice] = useState(0);
 	const [isLoading, setIsLoading] = useState(false);
+	const {userCache} = useContext(UserDataContext);
 
 	/**
 	 * If the user is not authenticated, notify the user that they need to be authenticated, otherwise,
