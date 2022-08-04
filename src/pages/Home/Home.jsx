@@ -10,6 +10,8 @@ import { UserDataContext } from "../../contexts/UserDataContext";
 import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase-config";
 import "./Home.css";
 
 const initialStorage = JSON.parse(localStorage.getItem("saveCache")) || [];
@@ -23,6 +25,7 @@ const notifyToast = (message, error = false) => {
 const Home = () => {
   const [shoppingCart, setShoppingCart] = useState(initialStorage);
   const [wishlistCart, setWishlistCart] = useState(wishlistStorage);
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   const { userCache } = useContext(UserDataContext);
   const paymentRedirection = useLocation();
   const navigator = useNavigate();
@@ -57,6 +60,8 @@ const Home = () => {
         wishlistCart={wishlistCart}
         setWishlistCart={setWishlistCart}
         notifyToast={notifyToast}
+        isAuth={isAuth}
+        setIsAuth={setIsAuth}
       />
       <Catalog
         shoppingCart={shoppingCart}

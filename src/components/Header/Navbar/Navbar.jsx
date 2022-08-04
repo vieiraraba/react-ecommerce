@@ -19,6 +19,7 @@ import Wishlist from "../../Cart/Wishlist/Wishlist";
 import { useContext } from "react";
 
 import { UserDataContext } from "../../../contexts/UserDataContext";
+import LoginGoogle from "../LoginGoogle/LoginGoogle";
 
 const Navbar = ({
   shoppingCart,
@@ -26,6 +27,8 @@ const Navbar = ({
   wishlistCart,
   setWishlistCart,
   notifyToast,
+  isAuth,
+  setIsAuth,
 }) => {
   /* Destructuring the userCache and setUserCache from the UserDataContext. */
   const { userCache, setUserCache } = useContext(UserDataContext);
@@ -62,6 +65,7 @@ const Navbar = ({
           </Popover.Trigger>
 
           <Popover.Content css={{ px: "$4", py: "$2" }}>
+            <LoginGoogle isAuth={isAuth} setIsAuth={setIsAuth}/>
             <Login />
           </Popover.Content>
         </Popover>
