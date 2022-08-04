@@ -1,25 +1,26 @@
-/* Importing the BrowserRouter, Routes, and Route components from the react-router-dom package. It is
-also importing the Login component from the Login.jsx file. */
+import Home from "./pages/Home/Home";
+import Login from "./components/Header/Login/Login";
+import Error404 from "./pages/Error404/Error404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login/Login.jsx";
-import Navbar from "./components/Navbar/Navbar";
+import { UserDataContextProvider } from "./contexts/UserDataContext";
 
-/**
- * The Router function returns a BrowserRouter component that contains two Routes components, one for
- * the Navbar and one for the Login component.
- * @returns A function that returns a JSX element.
- */
 const Router = () => {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Navbar />} />
-      </Routes>
-      <Routes>
-        <Route path="/Login" elemnt={<Login />} />
-      </Routes>
-    </BrowserRouter>
-  );
+	return (
+		<UserDataContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path='/login' element={<Login />} />
+				</Routes>
+				<Routes>
+					<Route path='/' element={<Home />} />
+					<Route path='/success' element={<Home />} />
+					<Route path='/cancel' element={<Home />} />
+					<Route path='*' element={<Error404 />} />
+				</Routes>
+			</BrowserRouter>
+		</UserDataContextProvider>
+	);
 };
 
 export default Router;
+

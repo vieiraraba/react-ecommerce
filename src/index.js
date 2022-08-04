@@ -2,11 +2,11 @@ import ReactDOM from "react-dom/client";
 import { NextUIProvider } from "@nextui-org/react";
 import "./index.css";
 import Router from "./Router";
-import App from "./App";
 
+//* It's rendering the Router Component.
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <NextUIProvider>
-    <App />
+    <Router />
   </NextUIProvider>
 );

@@ -1,8 +1,8 @@
 /* Importing the ShoppingCart component from the ShoppingCart.js file. */
-import ShoppingCart from "../Cart/ShoppingCart/ShoppingCart";
+import ShoppingCart from "../../Cart/ShoppingCart/ShoppingCart";
 
 /* Importing the Login component from the Login.js file. */
-import Login from "../../components/Login/Login";
+import Login from "../../Header/Login/Login";
 
 /* Importing the css file for the Navbar component. */
 import "./Navbar.css";
@@ -14,11 +14,11 @@ import { Popover, Button, User } from "@nextui-org/react";
 import { FaShoppingBasket, FaSkullCrossbones } from "react-icons/fa";
 
 /* Importing the Wishlist component from the Wishlist.js file. */
-import Wishlist from "../Cart/Wishlist/Wishlist";
+import Wishlist from "../../Cart/Wishlist/Wishlist";
 
 import { useContext } from "react";
 
-import { UserDataContext } from "../../contexts/UserDataContext";
+import { UserDataContext } from "../../../contexts/UserDataContext";
 
 const Navbar = ({
   shoppingCart,
@@ -35,9 +35,8 @@ const Navbar = ({
     <div className="navbar__container">
       <div className="navbar__container_logo">Logo</div>
       <div className="navbar__container_links">
-        <span className="navbar__container_link">DEMO</span>
+        <span className="navbar__container_link">HOME</span>
         <span className="navbar__container_link">SHOP</span>
-        <span className="navbar__container_link">PRODUCT</span>
         <span className="navbar__container_link">PORTFOLIO</span>
         <span className="navbar__container_link">LOOKBOK</span>
         <span className="navbar__container_link">BLOG</span>
