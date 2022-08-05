@@ -65,7 +65,8 @@ const Navbar = ({
           </Popover.Trigger>
 
           <Popover.Content css={{ px: "$4", py: "$2" }}>
-            <LoginGoogle isAuth={isAuth} setIsAuth={setIsAuth}/>
+            <LoginGoogle isAuth={isAuth} setIsAuth={setIsAuth} setShoppingCart={setShoppingCart}
+              userCache={userCache}/>
             <Login />
           </Popover.Content>
         </Popover>

@@ -3,25 +3,37 @@ import { auth, provider } from "../../../firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-function LoginGoogle({ setIsAuth }) {
-	let navigate = useNavigate();
+const LoginGoogle = ({
+  isAuth,
+  setIsAuth,
+  userCache,
+  setUserCache
+}) => {
 
-	const signInWithGoogle = () => {
-		signInWithPopup(auth, provider).then((result) => {
-			localStorage.setItem("isAuth", true);
-			setIsAuth(true);
-			navigate("/");
-		});
-	};
+const setUserInformation = (user) => {
+  const { displayName, email, photoURL } = user.user;
+  setUserCache(user,{ name: displayName, email: email, photo: photoURL });
+  navigator("/");
+};
 
-	return (
-		<div className='loginPage'>
-			<p>Sign In With Google to Continue</p>
-			<button className='login-with-google-btn' onClick={signInWithGoogle}>
-				Sign in with Google
-			</button>
-		</div>
-	);
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setUserInformation (result);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+
+  return (
+    <div className="loginPage">
+      <p>Sign In With Google to Continue</p>
+      <button className="login-with-google-btn" onClick={signInWithGoogle}>
+        Sign in with Google
+      </button>
+    </div>
+  );
 }
 
 export default LoginGoogle;
