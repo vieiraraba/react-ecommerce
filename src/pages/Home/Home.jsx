@@ -10,7 +10,6 @@ import { UserDataContext } from "../../contexts/UserDataContext";
 import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./Home.css";
 
 const initialStorage = JSON.parse(localStorage.getItem("saveCache")) || [];

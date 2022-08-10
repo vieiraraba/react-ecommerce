@@ -15,6 +15,7 @@
         "Catalog,jsx",
         "shoppingCart",
         "Avatar",
-        "Wishlist"
+        "Wishlist",
+        "Routes"
     ]
 }

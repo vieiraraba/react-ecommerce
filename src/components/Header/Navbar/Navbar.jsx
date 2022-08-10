@@ -23,6 +23,8 @@ import { UserDataContext } from "../../../contexts/UserDataContext";
 
 import useRegisterAuth from "../../../hooks/useRegisterAuth";
 
+import { Outlet, Link } from "react-router-dom";
+
 const Navbar = ({
   shoppingCart,
   setShoppingCart,
@@ -39,8 +41,9 @@ const Navbar = ({
     <div className="navbar__container">
         <div className="navbar__container_logo">Logo</div>
         <div className="navbar__container_links">
-          <span className="navbar__container_link" href="/home">HOME</span>
-          <span className="navbar__container_link">SHOP</span>
+          <Link to={`/`}>HOME</Link>
+          <Link to={`/catalog`}>CATALOG</Link>
+          <span className="navbar__container_link" >SHOP</span>
           <span className="navbar__container_link">PORTFOLIO</span>
           <span className="navbar__container_link">LOOKBOK</span>
           <span className="navbar__container_link">BLOG</span>
@@ -112,6 +115,7 @@ const Navbar = ({
             />
           </Popover.Content>
         </Popover>
+        <Outlet />
       </div>
     </div>
   );

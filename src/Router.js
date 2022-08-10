@@ -1,6 +1,7 @@
 import Home from "./pages/Home/Home";
 import Login from "./components/Header/Login/Login";
 import Error404 from "./pages/Error404/Error404";
+import PrivateCatalog from "./pages/PrivateCatalog/PrivateCatalog";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserDataContextProvider } from "./contexts/UserDataContext";
@@ -19,6 +20,7 @@ const Router = () => {
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />}/>
           <Route path="/success" element={<Home />} />
           <Route path="/cancel" element={<Home />} />
+          <Route path="/catalog" element={< PrivateCatalog/>} />
           <Route path="/product/:id" element={< ProductPage/>} />
           <Route path="*" element={<Error404 />} />
         </Routes>

@@ -1,0 +1,29 @@
+.catalogs__product_container{
+   display: flex;
+   flex-direction: column;
+   width: 50%;
+   border: 3px solid black;
+   padding: 10px;
+   color: black;
+}
+
+.catalogs__product_container_image{
+   width: 60rem;
+   height: 15rem;
+   margin: 4rem;
+}
+
+.catalogs__product_info{
+   display: flex;
+   justify-content:center;
+   gap: 4rem;
+}
+
+.catalogs__product_description{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   text-align: center;
+   padding: 5rem;
+   gap: 2rem;
+}
