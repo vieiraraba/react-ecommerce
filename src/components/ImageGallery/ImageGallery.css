@@ -1,0 +1,6 @@
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
+.image-gallery-slide .image-gallery-image {
+	height: 30vh;
+	object-fit: cover;
+}

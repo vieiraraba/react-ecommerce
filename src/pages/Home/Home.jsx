@@ -6,7 +6,7 @@ import Features from "../../components/BottomSection/Features/Features";
 import Footer from "../../components/BottomSection/Footer/Footer";
 import { UserDataContext } from "../../contexts/UserDataContext";
 //----------------------------------------------------------------
-
+import ImageGallery from "../../components/ImageGallery/ImageGallery";
 import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
@@ -58,6 +58,7 @@ const Home = () => {
         setWishlistCart={setWishlistCart}
         notifyToast={notifyToast}
       />
+      <ImageGallery />
       <Catalog
         shoppingCart={shoppingCart}
         setShoppingCart={setShoppingCart}
