@@ -1,6 +1,5 @@
 import Home from "./pages/Home/Home";
 import Login from "./components/Header/Login/Login";
-import LoginGoogle from "./components/Header/LoginGoogle/LoginGoogle";
 import Error404 from "./pages/Error404/Error404";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { UserDataContextProvider } from "./contexts/UserDataContext";
