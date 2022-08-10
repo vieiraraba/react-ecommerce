@@ -1,7 +1,6 @@
 .product__container {
 	display: flex;
 	flex-direction: column;
-	/* height: -webkit-fill-available; */
 	width: 12rem;
 	margin-bottom: 1rem;
 	color: whitesmoke;

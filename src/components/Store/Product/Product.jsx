@@ -143,9 +143,6 @@ If it is not, it sets the wishlistAdded state to false. */
       >
         <Row>
           <Col>
-            <Text color="#000" size={12}>
-              Available soon.
-            </Text>
             <Text color="#000" size={20}>
               € {price}
             </Text>

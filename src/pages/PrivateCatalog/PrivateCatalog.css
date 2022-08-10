@@ -1,10 +1,12 @@
 .catalogs__product_container{
-   display: flex;
-   flex-direction: column;
+   display: inline-block;
+   border-top: 1px solid black;
+   margin: auto;
    width: 50%;
-   border: 3px solid black;
    padding: 10px;
-   color: black;
+   text-align: center;
+   gap: 5rem;
+   color:black;
 }
 
 .catalogs__product_container_image{

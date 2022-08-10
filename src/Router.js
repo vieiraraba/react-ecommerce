@@ -20,8 +20,8 @@ const Router = () => {
           <Route path="/login" element={<Login setIsAuth={setIsAuth} />}/>
           <Route path="/success" element={<Home />} />
           <Route path="/cancel" element={<Home />} />
-          <Route path="/catalog" element={< PrivateCatalog/>} />
-          <Route path="/product/:id" element={< ProductPage/>} />
+          <Route path="/catalog" element={<PrivateCatalog />} />
+          <Route path="/product/:id" element={<ProductPage />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </BrowserRouter>

@@ -1,0 +1,26 @@
+.product__container{
+   margin: auto;
+   width: 50%;
+   padding: 10px;
+   text-align: center;
+   gap: 5rem;
+   color:black;
+}
+
+.product__button{
+   width: 100%;
+   border-radius: 35px;
+   font-size: 150%;
+}
+
+
+
+h1{
+   font-size: 300%;
+}
+
+h3{
+   font-size:150%;
+   text-align:center;
+   padding: 1rem;
+}
