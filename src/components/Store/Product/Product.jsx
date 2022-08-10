@@ -10,6 +10,7 @@ import { Card, Col, Row, Button, Text } from "@nextui-org/react";
 /* Importing the AiOutlineHeart and AiFillHeart icons from the react-icons/ai library. */
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
+import { Outlet, Link } from "react-router-dom";
 
 /* A function that takes in a bunch of props and returns a react component. */
 const Product = ({
@@ -26,7 +27,6 @@ const Product = ({
   setWishlistCart,
   menuState,
   setMenu,
-
 }) => {
   /* A function that adds an item to the shopping cart. */
 
@@ -47,7 +47,7 @@ const Product = ({
     setItemAdded(true);
   };
 
-/* Checking if the item is already in the shopping cart. If it is, it sets the itemAdded state to true.
+  /* Checking if the item is already in the shopping cart. If it is, it sets the itemAdded state to true.
 If it is not, it sets the itemAdded state to false. */
   useEffect(() => {
     const result = shoppingCart.some((item) => {
@@ -76,7 +76,7 @@ If it is not, it sets the itemAdded state to false. */
     ]);
     // setItemAdded(true);
   };
-/* Checking if the item is already in the wishlist cart. If it is, it sets the wishlistAdded state to
+  /* Checking if the item is already in the wishlist cart. If it is, it sets the wishlistAdded state to
 true.
 If it is not, it sets the wishlistAdded state to false. */
   useEffect(() => {
@@ -91,7 +91,6 @@ If it is not, it sets the wishlistAdded state to false. */
     !result && setWishlistAdded(false);
   }, [id, wishlistCart]);
 
-
   return (
     <Card css={{ w: "15%", h: "330px" }}>
       <Card.Header
@@ -103,13 +102,13 @@ If it is not, it sets the wishlistAdded state to false. */
             New
           </Text>
           <Text h3 color="black" size={25} weight="bold">
-            {title}
+            <Link to={`/product/${id}`}>{title}</Link>
             <Button
-            className="wishlist__Btn"
-            light
-            color="error"
-            onClick={addToWishlistCart}
-            disabled={wishlistAdded}
+              className="wishlist__Btn"
+              light
+              color="error"
+              onClick={addToWishlistCart}
+              disabled={wishlistAdded}
             >
               {wishlistAdded ?  <AiFillHeart size='5rem'  /> : <AiOutlineHeart size="5rem" />}
             </Button>
@@ -161,6 +160,7 @@ If it is not, it sets the wishlistAdded state to false. */
           </Col>
         </Row>
       </Card.Footer>
+      <Outlet />
     </Card>
   );
 };

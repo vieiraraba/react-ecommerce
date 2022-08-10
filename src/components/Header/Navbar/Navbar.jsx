@@ -20,6 +20,7 @@ import { useContext } from "react";
 
 import { UserDataContext } from "../../../contexts/UserDataContext";
 
+
 import useRegisterAuth from "../../../hooks/useRegisterAuth";
 
 const Navbar = ({
@@ -31,21 +32,19 @@ const Navbar = ({
 }) => {
   /* Destructuring the userCache and setUserCache from the UserDataContext. */
   const { userCache, setUserCache } = useContext(UserDataContext);
-  const { signInWithGoogle } = useRegisterAuth();
+	const { signInWithGoogle } = useRegisterAuth();
 
   return (
     /* Creating a navbar with links. */
     <div className="navbar__container">
-      <div className="navbar__container_logo">Logo</div>
-      <div className="navbar__container_links">
-        <span className="navbar__container_link" href="/home">
-          HOME
-        </span>
-        <span className="navbar__container_link">SHOP</span>
-        <span className="navbar__container_link">PORTFOLIO</span>
-        <span className="navbar__container_link">LOOKBOK</span>
-        <span className="navbar__container_link">BLOG</span>
-      </div>
+        <div className="navbar__container_logo">Logo</div>
+        <div className="navbar__container_links">
+          <span className="navbar__container_link" href="/home">HOME</span>
+          <span className="navbar__container_link">SHOP</span>
+          <span className="navbar__container_link">PORTFOLIO</span>
+          <span className="navbar__container_link">LOOKBOK</span>
+          <span className="navbar__container_link">BLOG</span>
+        </div>
 
       {/* Creating a popover that will display the shopping cart when the user clicks on the cart
       button. */}
