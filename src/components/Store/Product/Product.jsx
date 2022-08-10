@@ -102,7 +102,7 @@ If it is not, it sets the wishlistAdded state to false. */
             New
           </Text>
           <Text h3 color="black" size={25} weight="bold">
-            <Link to={`/product/${id}`}>{title}</Link>
+            {title}
             <Button
               className="wishlist__Btn"
               light
@@ -110,19 +110,26 @@ If it is not, it sets the wishlistAdded state to false. */
               onClick={addToWishlistCart}
               disabled={wishlistAdded}
             >
-              {wishlistAdded ?  <AiFillHeart size='5rem'  /> : <AiOutlineHeart size="5rem" />}
+              {wishlistAdded ? (
+                <AiFillHeart size="5rem" />
+              ) : (
+                <AiOutlineHeart size="5rem" />
+              )}
             </Button>
           </Text>
         </Col>
       </Card.Header>
+
       <Card.Body css={{ p: 0 }}>
-        <Card.Image
-          src={image}
-          width="100%"
-          height="100%"
-          objectFit="cover"
-          alt="Card example background"
-        />
+        <Link to={`/product/${id}`}>
+          <Card.Image
+            src={image}
+            width="100%"
+            height="100%"
+            objectFit="cover"
+            alt="Card example background"
+          />
+        </Link>
       </Card.Body>
       <Card.Footer
         isBlurred

@@ -1,29 +1,30 @@
-import React from "react";
 import Navbar from "../../components/Header/Navbar/Navbar";
 import Footer from "../../components/BottomSection/Footer/Footer";
-import { products } from "../../data/products";
-import "./ProductPage.css";
+import React from "react";
+import { useParams } from "react-router-dom";
+import products from "../../data/products.json";
 
 function ProductPage() {
-  console.log(products);
+  const { id: productId } = useParams();
+  const { image, price, title } = products.find(
+    (e) => e.id === parseInt(productId)
+  );
   return (
     <>
       <Navbar />
-      <div className="product__contain=e">
-        {/* {products.map(({ id, name, title, description }) => { */}
-          {/* return ( */}
-            <div className="product__info">
-              <img src="https://i.etsystatic.com/26845207/r/il/a796c9/3709805451/il_794xN.3709805451_63jl.jpg" alt="Product Img" />
-              <div className="product__description">
-                <div>
-                  <h1>title</h1>
-                  <h3>description</h3>
-                </div>
-                <button>Add to Cart</button>
-              </div>
-            </div>
-          {/* ); */}
-        {/* })} */}
+      <div className="">
+        <img
+          src={image}
+          alt="Product Img"
+          className="product__container_image"
+        />
+        <div>
+          <p>{price}</p>
+        </div>
+        <div>
+          <p>{title}</p>
+        </div>
+        <button>Add to Cart</button>
       </div>
       <Footer />
     </>
