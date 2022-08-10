@@ -19,7 +19,8 @@ import Wishlist from "../../Cart/Wishlist/Wishlist";
 import { useContext } from "react";
 
 import { UserDataContext } from "../../../contexts/UserDataContext";
-import LoginGoogle from "../LoginGoogle/LoginGoogle";
+
+import useRegisterAuth from "../../../hooks/useRegisterAuth";
 
 const Navbar = ({
   shoppingCart,
@@ -27,18 +28,19 @@ const Navbar = ({
   wishlistCart,
   setWishlistCart,
   notifyToast,
-  isAuth,
-  setIsAuth,
 }) => {
   /* Destructuring the userCache and setUserCache from the UserDataContext. */
   const { userCache, setUserCache } = useContext(UserDataContext);
+  const { signInWithGoogle } = useRegisterAuth();
 
   return (
     /* Creating a navbar with links. */
     <div className="navbar__container">
       <div className="navbar__container_logo">Logo</div>
       <div className="navbar__container_links">
-        <span className="navbar__container_link">HOME</span>
+        <span className="navbar__container_link" href="/home">
+          HOME
+        </span>
         <span className="navbar__container_link">SHOP</span>
         <span className="navbar__container_link">PORTFOLIO</span>
         <span className="navbar__container_link">LOOKBOK</span>
@@ -54,8 +56,8 @@ const Navbar = ({
               <User
                 as="button"
                 src={userCache?.avatar}
-                name={userCache.username}
-                description=""
+                name={userCache?.name ? userCache?.name : userCache.username}
+                description={userCache?.name ? userCache.username : ""}
               />
             ) : (
               <Button color="warning" light>
@@ -65,9 +67,18 @@ const Navbar = ({
           </Popover.Trigger>
 
           <Popover.Content css={{ px: "$4", py: "$2" }}>
-            <LoginGoogle isAuth={isAuth} setIsAuth={setIsAuth} setShoppingCart={setShoppingCart}
-              userCache={userCache}/>
-            <Login />
+            <div>
+              {!userCache?.username && (
+                <button
+                  className="login-with-google-btn"
+                  onClick={signInWithGoogle}
+                >
+                  Sign in with Google
+                </button>
+              )}
+            </div>
+
+            <Login userCache={userCache} setUserCache={setUserCache} />
           </Popover.Content>
         </Popover>
 
