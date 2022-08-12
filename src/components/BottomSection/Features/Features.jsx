@@ -1,33 +1,54 @@
 import './Features.css';
 
-import{FaReply, FaHeadset, FaCreditCard, FaShippingFast} from "react-icons/fa";
+import{FaReply, FaCreditCard, FaShippingFast} from "react-icons/fa";
 const Features = () => {
   return (
-    <div className="features__container">
-        <div className="firstFeature__container">
-            <span><FaReply size="6rem"/></span>
-            <h3>FREE RETURN</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
-        </div>
+    <div className='features__container'>
+			<div className='firstFeature__container'>
+				<span className='services_icons'>
+					<FaReply size='5rem' />
+				</span>
+				<div> 
+					<h3 className='services_names'>FREE RETURNS</h3>
+					<h3 className='services_names'>Easy & Free</h3>
+					<p className='services_description' >From all Orders Over $100</p>
+				</div>
+				
+				<p>
 
-        <div className="secondFeature__container">
-            <span><FaCreditCard size="6rem"/></span>
-            <h3>SECURED PAYMENT</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
-        </div>
+				</p>
+			</div>
 
-        <div className="thirdFeature__container">
-            <span><FaHeadset size="6rem"/></span>
-            <h3>CUSTOMER SUPPORT</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
-        </div>
+			<div className='secondFeature__container'>
+				<span className='services_icons'>
+					<FaCreditCard size='5rem' />
+				</span>
+				<div> 
+					<h3 className='services_names'>SECURE PAYMENT</h3>
+					<h3 className='services_names'>Fast & Safe</h3>
+					<p className='services_description' >From all Orders Over $100</p>
+				</div>
+				<p>
 
-        <div className="fourthFeature__container">
-            <span><FaShippingFast size="6rem"/></span>
-            <h3>FREE SHIPPING</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, maiores aperiam labore deserunt</p>
-        </div>
-    </div>
+				</p>
+			</div>
+
+			<div className='thirdFeature__container'>
+				<span className='services_icons'>
+					<FaShippingFast size='5rem' />
+				</span>
+				<div> 
+					<h3 className='services_names'>FREE SHIPPING</h3>
+					<h3 className='services_names'>Safe & Fast</h3>
+					<p className='services_description' >From all Orders Over $100</p>
+				</div>
+				<p>
+
+				</p>
+			</div>
+
+
+		</div>
   )
 }
 

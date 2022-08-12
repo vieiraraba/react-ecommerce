@@ -1,42 +1,42 @@
-.navbar__container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    height: 5vh;
-    width:100%;
-    border-top: 1px solid black;
-}
-
-h1{
-    padding:50px;
-}
-
-.navbar__container_links{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:2vw;
-}
-
-.navbar__container_logo {
-    margin-left: 2rem;
-}
-
-.navbar__container_icons{
+.navbar__container {
     display: flex;
-    align-items:center;
-    padding-right: 2rem;
-    gap:2vw;
-	margin-right: 2rem;
-}
-
-.btn{
-    border:none;
-    height: 25px;
-    width: 2px;
-    color:black;
-    background-color:white;
-}
-.icon{
-    padding:0;
-}
+    justify-content: space-between;
+    align-items: center;
+    height: 5vh;
+    width: 100%;
+  }
+  
+  .navbar__container_logo {
+    width: 480px;
+  }
+  
+  .navbar__container_icons {
+    display: flex;
+  }
+  
+  .navbar__container_links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2vw;
+  }
+  .top-bar {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-family: "Poppins";
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+  }
+  
+  .coupon {
+    margin-left: 20px;
+  }
+  

@@ -1,27 +1,22 @@
-/* Importing the ShoppingCart component from the ShoppingCart.js file. */
 import ShoppingCart from "../../Cart/ShoppingCart/ShoppingCart";
-
-/* Importing the Login component from the Login.js file. */
+import Wishlist from "../../Cart/Wishlist/Wishlist";
 import Login from "../../Header/Login/Login";
+import useRegisterAuth from "../../../hooks/useRegisterAuth";
 
-/* Importing the css file for the Navbar component. */
 import "./Navbar.css";
 
-/* Importing the Popover and Button components from the @nextui-org/react package. */
-import { Popover, Button, User } from "@nextui-org/react";
-
-/* Importing the shopping bag icon from the react-icons package. */
-import { FaShoppingBasket, FaSkullCrossbones } from "react-icons/fa";
-
-/* Importing the Wishlist component from the Wishlist.js file. */
-import Wishlist from "../../Cart/Wishlist/Wishlist";
-
+import { IconContext } from "react-icons";
+import { Popover, Button, User, Tooltip } from "@nextui-org/react";
+import { FaUserNinja } from "react-icons/fa";
+import {
+  AiOutlineInstagram,
+  AiOutlineGithub,
+  AiOutlineTwitter,
+  AiOutlineLinkedin,
+} from "react-icons/ai";
+import { BsBagCheck, BsHeart, BsSearch } from "react-icons/bs";
 import { useContext } from "react";
-
 import { UserDataContext } from "../../../contexts/UserDataContext";
-
-
-import useRegisterAuth from "../../../hooks/useRegisterAuth";
 
 import { Outlet, Link } from "react-router-dom";
 
@@ -34,12 +29,44 @@ const Navbar = ({
 }) => {
   /* Destructuring the userCache and setUserCache from the UserDataContext. */
   const { userCache, setUserCache } = useContext(UserDataContext);
-	const { signInWithGoogle } = useRegisterAuth();
+  const { signInWithGoogle } = useRegisterAuth();
 
   return (
-    /* Creating a navbar with links. */
-    <div className="navbar__container">
-        <div className="navbar__container_logo">Logo</div>
+    <>
+      <div className="top-bar">
+        <div>
+          <p className="coupon"> GET 20% SALE WITH COUPONE CODE CGBNJKI25 </p>
+        </div>
+        <div className="social_network__container">
+          <IconContext.Provider value={{ size: "4.5rem", color: "white" }}>
+            <span>
+              <AiOutlineInstagram />
+            </span>
+          </IconContext.Provider>
+          <IconContext.Provider value={{ size: "4.5rem", color: "white" }}>
+            <span>
+              <AiOutlineGithub />
+            </span>
+          </IconContext.Provider>
+          <IconContext.Provider value={{ size: "4.5rem", color: "white" }}>
+            <span>
+              <AiOutlineTwitter />
+            </span>
+          </IconContext.Provider>
+          <IconContext.Provider value={{ size: "4.5rem", color: "white" }}>
+            <span>
+              <AiOutlineLinkedin />
+            </span>
+          </IconContext.Provider>
+        </div>
+      </div>
+      <div className="navbar__container">
+        <div className="navbar__container_logo"><img
+          alt="logo"
+          src="https://wordpress-797010-2726389.cloudwaysapps.com/wp-content/uploads/2022/08/LogoJason.png"
+        ></img>
+        </div>
+        
         <div className="navbar__container_links">
           <Link to={`/`}>HOME</Link>
           <Link to={`/catalog`}>CATALOG</Link>
@@ -49,75 +76,107 @@ const Navbar = ({
           <span className="navbar__container_link">BLOG</span>
         </div>
 
-      {/* Creating a popover that will display the shopping cart when the user clicks on the cart
-      button. */}
-      <div div className="navbar__container_icons">
-        <Popover>
-          <Popover.Trigger>
-            {userCache?.username ? (
-              <User
-                as="button"
-                src={userCache?.avatar}
-                name={userCache?.name ? userCache?.name : userCache.username}
-                description={userCache?.name ? userCache.username : ""}
-              />
-            ) : (
-              <Button color="warning" light>
-                Login
-              </Button>
-            )}
-          </Popover.Trigger>
+        <div div className="navbar__container_icons">
 
-          <Popover.Content css={{ px: "$4", py: "$2" }}>
-            <div>
-              {!userCache?.username && (
-                <button
-                  className="login-with-google-btn"
-                  onClick={signInWithGoogle}
-                >
-                  Sign in with Google
-                </button>
+          <Popover>
+            <Popover.Trigger>
+              {userCache?.username ? (
+                <User
+                  as="button"
+                  src={userCache?.avatar}
+                  name={userCache?.name ? userCache?.name : userCache.username}
+                  description={userCache?.name ? userCache.username : ""}
+                />
+              ) : (
+                <Button color="warning" light>
+                  <IconContext.Provider
+                    value={{ size: "4.5rem", color: "black" }}
+                  >
+                    <span>
+                      <FaUserNinja />
+                    </span>
+                  </IconContext.Provider>
+                </Button>
               )}
-            </div>
+            </Popover.Trigger>
 
-            <Login userCache={userCache} setUserCache={setUserCache} />
-          </Popover.Content>
-        </Popover>
+            <Popover.Content css={{ px: "$4", py: "$2" }}>
+              <div>
+                {!userCache?.username && (
+                  <button
+                    className="login-with-google-btn"
+                    onClick={signInWithGoogle}
+                  >
+                    Sign in with Google
+                  </button>
+                )}
+              </div>
 
-        <Popover>
-          <Popover.Trigger>
-            <Button className="btn" auto ghost>
-              <FaShoppingBasket className="icon" size="1.5rem" />
+              <Login userCache={userCache} setUserCache={setUserCache} />
+            </Popover.Content>
+          </Popover>
+
+
+          <Tooltip content="Comming Soon" color="invert" placement="bottom">
+            <Button auto color="invert">
+              <IconContext.Provider value={{ size: "4.5rem", color: "black" }}>
+                <span>
+                  <BsSearch />
+                </span>
+              </IconContext.Provider>
             </Button>
-          </Popover.Trigger>
-          <Popover.Content css={{ width: "max-content" }}>
-            <ShoppingCart
-              shoppingCart={shoppingCart}
-              setShoppingCart={setShoppingCart}
-              userCache={userCache}
-              notifyToast={notifyToast}
-            />
-          </Popover.Content>
-        </Popover>
+          </Tooltip>
 
-        <Popover>
-          <Popover.Trigger>
-            <Button className="btn" auto ghost>
-              <FaSkullCrossbones className="icon" size="1.5rem" />
-            </Button>
-          </Popover.Trigger>
-          <Popover.Content css={{ width: "max-content" }}>
-            <Wishlist
-              wishlistCart={wishlistCart}
-              setWishlistCart={setWishlistCart}
-              shoppingCart={shoppingCart}
-              setShoppingCart={setShoppingCart}
-            />
-          </Popover.Content>
-        </Popover>
-        <Outlet />
+
+          <Popover>
+            <Popover.Trigger>
+              <Button className="btn" auto ghost>
+                <IconContext.Provider
+                  value={{ size: "4.5rem", color: "black" }}
+                >
+                  <span>
+                    <BsBagCheck />
+                  </span>
+                </IconContext.Provider>
+              </Button>
+            </Popover.Trigger>
+
+            <Popover.Content css={{ width: "max-content" }}>
+              <ShoppingCart
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart}
+                userCache={userCache}
+                notifyToast={notifyToast}
+              />
+            </Popover.Content>
+          </Popover>
+
+          <Popover>
+            <Popover.Trigger>
+              <Button className="btn" auto ghost>
+                <IconContext.Provider
+                  value={{ size: "4.5rem", color: "black" }}
+                >
+                  <span>
+                    <BsHeart />
+                  </span>
+                </IconContext.Provider>
+              </Button>
+            </Popover.Trigger>
+
+            <Popover.Content css={{ width: "max-content" }}>
+              <Wishlist
+                wishlistCart={wishlistCart}
+                setWishlistCart={setWishlistCart}
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart}
+              />
+            </Popover.Content>
+          </Popover>
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

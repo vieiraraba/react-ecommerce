@@ -1,12 +1,17 @@
 // -------------- Components --------------
 import Navbar from "../../components/Header/Navbar/Navbar";
 import Catalog from "../../components/Store/Catalog/Catalog";
+import SelectFighter from "../../components/SelectFighter/SelectFighter";
+import PresentationVideo from "../../components/PresentationVideo/PresentationVideo";
 import FreeShippingMin from "../../components/BottomSection/FreeShippingMin/FreeShippingMin";
 import Features from "../../components/BottomSection/Features/Features";
 import Footer from "../../components/BottomSection/Footer/Footer";
-import { UserDataContext } from "../../contexts/UserDataContext";
+import ImageGallery from "../../components/ImageGallery/ImageCarousel";
+import Sponsors from "../../components/Sponsors/Sponsors";
+
 //----------------------------------------------------------------
-import ImageGallery from "../../components/ImageGallery/ImageGallery";
+
+import { UserDataContext } from "../../contexts/UserDataContext";
 import { useEffect, useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
@@ -59,6 +64,9 @@ const Home = () => {
         notifyToast={notifyToast}
       />
       <ImageGallery />
+      <Features />
+      <SelectFighter />
+      <Sponsors />
       <Catalog
         shoppingCart={shoppingCart}
         setShoppingCart={setShoppingCart}
@@ -66,8 +74,9 @@ const Home = () => {
         setWishlistCart={setWishlistCart}
         notifyToast={notifyToast}
       />
+      <PresentationVideo />
       <FreeShippingMin />
-      <Features />
+      
       <Footer />
       <Toaster position="top-left" reverseOrder={false} />
     </div>
