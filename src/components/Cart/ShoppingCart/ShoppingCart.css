@@ -4,7 +4,7 @@
   justify-content: space-evenly;
   color: black;
   padding: 20px;
-  gap:1rem;
+  font-family: "Roboto";
 }
 .cart-title {
   text-align: center;
@@ -20,7 +20,9 @@
   text-align: start;
   border-top: solid 1px #515151;
   padding-top: 10px;
+  font-family: "Roboto";
 }
 .cart__total_price {
   text-align: start;
+  font-family: "Roboto";
 }

@@ -8,7 +8,7 @@ import Features from "../../components/BottomSection/Features/Features";
 import Footer from "../../components/BottomSection/Footer/Footer";
 import ImageGallery from "../../components/ImageGallery/ImageCarousel";
 import Sponsors from "../../components/Sponsors/Sponsors";
-
+import Ranking from "../../components/Ranking/Ranking";
 //----------------------------------------------------------------
 
 import { UserDataContext } from "../../contexts/UserDataContext";
@@ -75,8 +75,9 @@ const Home = () => {
         notifyToast={notifyToast}
       />
       <PresentationVideo />
+      <Sponsors />
       <FreeShippingMin />
-      
+      <Ranking />
       <Footer />
       <Toaster position="top-left" reverseOrder={false} />
     </div>

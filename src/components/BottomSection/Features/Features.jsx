@@ -1,9 +1,14 @@
-import './Features.css';
+import { FaReply } from "react-icons/fa";
+import { FaCreditCard } from "react-icons/fa";
+import { FaShippingFast } from "react-icons/fa";
+import "./Features.css";
 
-import{FaReply, FaCreditCard, FaShippingFast} from "react-icons/fa";
-const Features = () => {
-  return (
-    <div className='features__container'>
+//* It returns a div with four child divs, each of which contains a span, an h3, and a p.
+//* @returns A div with a className of features__container.
+
+const Services = () => {
+	return (
+		<div className='features__container'>
 			<div className='firstFeature__container'>
 				<span className='services_icons'>
 					<FaReply size='5rem' />
@@ -49,7 +54,7 @@ const Features = () => {
 
 
 		</div>
-  )
-}
+	);
+};
 
-export default Features;
+export default Services;

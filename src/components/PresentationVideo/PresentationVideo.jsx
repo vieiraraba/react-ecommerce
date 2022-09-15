@@ -27,7 +27,7 @@ function PresentationVideo() {
             </Modal.Header>
             <Modal.Body>
               <ReactPlayer
-                url="https://youtu.be/lft48yFsHGU"
+                url="https://youtu.be/fWoxv60cz00"
                 controls
                 loop
                 widht="100%"

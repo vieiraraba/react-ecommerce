@@ -1,23 +1,27 @@
 .cart__item {
   display: flex;
-  border: 2px solid black;
-  border-radius: 10px;
-  gap: 0.5rem;
+  padding: 10px 0px;
+  font-family: "Roboto";
 }
 .cart__item_image {
   height: 4rem;
-  border-radius: 10px;
 }
 
 .cart__list {
   color: black;
 }
 
-.cart__list ul{
-  padding: 1rem
-}
-
 .cart__item_bottom {
   display: flex;
   align-items: center;
+}
+
+.nextui-c-iWjDFM-hwCqnx-cv {
+  background: #242424;
+  font-family: "Roboto";
+  padding: 0px 0px 9px 0px;
+  margin-top: 10px;
+  border-color: transparent;
+  color: white;
+  font-weight: 600;
 }
